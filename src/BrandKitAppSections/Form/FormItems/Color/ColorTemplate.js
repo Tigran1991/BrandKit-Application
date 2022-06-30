@@ -1,10 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
 
 import "./Color.css";
+import { closeColorTemplateState } from "../../../../redux/features/form-items-templates/ColorTemplateReducerSlice";
 
 const ColorTemplate = () => {
+
+  const dispatch = useDispatch();
+
   return (
-    <>
+    <div className="color-template">
+      <button
+        className="close-color-template-btn"
+        onClick={() => dispatch(closeColorTemplateState(false))}
+      >
+        Close
+      </button>
       <div className="selected-colors">
         <div className="add-brand-colors">
           <input type="file" style={{ display: "none" }} id="download-logo" />
@@ -17,7 +28,7 @@ const ColorTemplate = () => {
           Reset
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

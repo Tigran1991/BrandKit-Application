@@ -23,12 +23,7 @@ const AddLogo = () => {
         >
           Brand Logo
         </button>
-        <button
-          className="close-btn"
-          onClick={() => dispatch(closeLogoTemplateState(false))}
-        >
-          Close
-        </button>
+        
       </div>
 
       {LOGO && <LogoTemplate />}

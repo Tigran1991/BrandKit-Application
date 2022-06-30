@@ -23,12 +23,6 @@ const AddFonts = () => {
         >
           Brand Fonts
         </button>
-        <button
-          className="close-btn"
-          onClick={() => dispatch(closeFontsTemplateState(false))}
-        >
-          Close
-        </button>
       </div>
 
       {FONTS && <FontsTemplate />}

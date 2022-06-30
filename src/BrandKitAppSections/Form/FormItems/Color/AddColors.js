@@ -23,12 +23,6 @@ const AddColors = () => {
         >
           Brand color
         </button>
-        <button
-          className="close-btn"
-          onClick={() => dispatch(closeColorTemplateState(false))}
-        >
-          Close
-        </button>
       </div>
 
       {COLOR && <ColorTemplate />}
