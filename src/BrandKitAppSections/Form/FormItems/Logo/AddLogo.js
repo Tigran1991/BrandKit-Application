@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   logoTemplateState,
   showLogoTemplateState,
-  closeLogoTemplateState,
 } from "../../../../redux/features/form-items-templates/LogoTemplateReducerSlice";
 
 const AddLogo = () => {
@@ -23,9 +22,7 @@ const AddLogo = () => {
         >
           Brand Logo
         </button>
-        
       </div>
-
       {LOGO && <LogoTemplate />}
     </div>
   );

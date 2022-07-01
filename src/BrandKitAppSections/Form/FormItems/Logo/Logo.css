@@ -10,7 +10,7 @@
 
 .logo-template{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
@@ -45,16 +45,21 @@
 
 .selected-logos {
   display: flex;
-  width: 100%;
+  width: 80%;
   align-items: center;
-  margin-left: 10px;
+}
+
+.add-logo{
+  display: flex;
+  width: 15%;
+  height: 100%;
 }
 
 .add-brand-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 100%;
   height: 160px;
   cursor: pointer;
   border: 0px;
@@ -64,6 +69,11 @@
   border: 1px solid #38cbe9;
   background-color: rgb(255, 255, 255);
   border-radius: 3px;
+  transition: .3ms linear;
+}
+
+.add-brand-logo:hover{
+  border: 3px solid #0b8097;
 }
 
 .add-logo-btn {
@@ -103,9 +113,9 @@
   border-radius: 3px;
 }
 
-.reset {
+.reset-logo {
   display: flex;
-  width: 100%;
+  width: 10%;
   height: 100%;
   align-items: flex-end;
   justify-content: flex-end;

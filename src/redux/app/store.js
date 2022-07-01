@@ -6,6 +6,7 @@ import { saveButtonReducer, initialSaveButtonState } from "../features/SaveButto
 import { showLogoTemplateReducer, initialLogoTemplateState } from "../features/form-items-templates/LogoTemplateReducerSlice.js";
 import { showColorTemplateReducer, initialColorTemplateState } from "../features/form-items-templates/ColorTemplateReducerSlice.js";
 import { showFontsTemplateReducer, initialFontsTemplateState } from "../features/form-items-templates/FontsTemplateReducerSlice.js";
+import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
 
 
 const store = createStore(
@@ -16,6 +17,7 @@ const store = createStore(
     logoTemplate: showLogoTemplateReducer,
     colorTemplate: showColorTemplateReducer,
     fontsTemplate: showFontsTemplateReducer,
+    logos: logosReducer,
   }),
   {
     brandKitApp: initialApp,

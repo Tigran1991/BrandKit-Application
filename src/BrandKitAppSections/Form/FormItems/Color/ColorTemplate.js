@@ -5,7 +5,6 @@ import "./Color.css";
 import { closeColorTemplateState } from "../../../../redux/features/form-items-templates/ColorTemplateReducerSlice";
 
 const ColorTemplate = () => {
-
   const dispatch = useDispatch();
 
   return (
@@ -16,14 +15,16 @@ const ColorTemplate = () => {
       >
         Close
       </button>
-      <div className="selected-colors">
+      <div className="add-colors">
         <div className="add-brand-colors">
           <input type="file" style={{ display: "none" }} id="download-logo" />
           <label htmlFor="download-logo" className="plus" />
         </div>
+      </div>
+      <div className="selected-colors">
         <div className="added-colors"></div>
       </div>
-      <div className="reset">
+      <div className="reset-color">
         <button type="reset" className="reset-btn">
           Reset
         </button>

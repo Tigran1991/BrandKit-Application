@@ -16,13 +16,13 @@ const FontsTemplate = () => {
       >
         Close
       </button>
-      <div className="selected-font">
-        <div className="add-font-btn">
+      <div className="add-font-btn">
           <input type="file" style={{ display: "none" }} id="download-logo" />
-        </div>
+      </div>
+      <div className="selected-font">
         <div className="added-font"></div>
       </div>
-      <div className="reset">
+      <div className="reset-fonts">
         <button type="reset" className="reset-btn">
           Reset
         </button>

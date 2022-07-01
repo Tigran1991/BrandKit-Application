@@ -10,11 +10,17 @@
 
 .color-template{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   position: relative;
+}
+
+.add-colors{
+  display: flex;
+  width: 15%;
+  height: 100%;
 }
 
 .close-color-template-btn{
@@ -50,16 +56,15 @@
 
 .selected-colors {
   display: flex;
-  width: 100%;
+  width: 80%;
   align-items: center;
-  margin-left: 10px;
 }
 
 .add-brand-colors {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 100%;
   height: 160px;
   cursor: pointer;
   border: 0px;
@@ -105,9 +110,9 @@
   border-radius: 3px;
 }
 
-.reset {
+.reset-color {
   display: flex;
-  width: 100%;
+  width: 10%;
   height: 100%;
   align-items: flex-end;
   justify-content: flex-end;

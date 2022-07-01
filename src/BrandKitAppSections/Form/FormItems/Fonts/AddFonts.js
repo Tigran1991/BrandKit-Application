@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fontsTemplateState,
   showFontsTemplateState,
-  closeFontsTemplateState,
 } from "../../../../redux/features/form-items-templates/FontsTemplateReducerSlice";
 
 const AddFonts = () => {
