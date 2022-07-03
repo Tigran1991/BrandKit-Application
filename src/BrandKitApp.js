@@ -9,7 +9,6 @@ import { selectBrandKitAppState } from "./redux/features/BrandKitAppReducerSlice
 import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
 
 const BrandKitApp = () => {
-
   const dispatch = useDispatch();
 
   const BRAND_KIT_APP = useSelector(selectBrandKitAppState);
@@ -17,21 +16,25 @@ const BrandKitApp = () => {
 
   return (
     <div className="brand-kit-board">
+      <button
+        className="add-brand-kit-btn"
+        onClick={() => dispatch(appSelectedState(!BRAND_KIT_APP))}
+      >
+        {!BRAND_KIT_APP &&
+          <p>Add BrandKit</p>
+        }
 
-      {!BRAND_KIT_APP &&
-        <button
-          className="add-brand-kit-btn"
-          onClick={() => dispatch(appSelectedState(true))}
-        > Add Brand Kit </button>
-      }
+        {BRAND_KIT_APP &&
+          <p>Close BrandKit</p>
+        }
+      </button>
 
-      {BRAND_KIT_APP && 
-      <>
-        <Form formData={BRAND_KIT_COLLECTIONS} />
-        <CollectionStorage collectionData={BRAND_KIT_COLLECTIONS}/>
-      </>
-      }
-
+      {BRAND_KIT_APP && (
+        <>
+          <Form formData={BRAND_KIT_COLLECTIONS} />
+          <CollectionStorage collectionData={BRAND_KIT_COLLECTIONS} />
+        </>
+      )}
     </div>
   );
 };

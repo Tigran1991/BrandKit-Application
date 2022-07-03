@@ -7,7 +7,8 @@ import { showLogoTemplateReducer, initialLogoTemplateState } from "../features/f
 import { showColorTemplateReducer, initialColorTemplateState } from "../features/form-items-templates/ColorTemplateReducerSlice.js";
 import { showFontsTemplateReducer, initialFontsTemplateState } from "../features/form-items-templates/FontsTemplateReducerSlice.js";
 import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
-
+import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerReducerSlice.js";
+import { colorDivCollectionReducer } from "../features/DivsCollectionReducerSlice.js";
 
 const store = createStore(
   combineReducers({
@@ -18,6 +19,8 @@ const store = createStore(
     colorTemplate: showColorTemplateReducer,
     fontsTemplate: showFontsTemplateReducer,
     logos: logosReducer,
+    colorPicker: colorPickerReducer,
+    colorDivCollection: colorDivCollectionReducer,
   }),
   {
     brandKitApp: initialApp,
@@ -25,6 +28,7 @@ const store = createStore(
     logoTemplate: initialLogoTemplateState,
     colorTemplate: initialColorTemplateState,
     fontsTemplate: initialFontsTemplateState,
+    colorPicker: initialColorPicker,
   },
   composeWithDevTools()
 );

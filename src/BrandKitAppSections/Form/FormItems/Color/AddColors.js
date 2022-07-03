@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   colorTemplateState,
   showColorTemplateState,
-  closeColorTemplateState,
 } from "../../../../redux/features/form-items-templates/ColorTemplateReducerSlice";
 
 import "./Color.css";

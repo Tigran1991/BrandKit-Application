@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import '../../App.css';
 import CollectionItem from "./CollectionItem.js";

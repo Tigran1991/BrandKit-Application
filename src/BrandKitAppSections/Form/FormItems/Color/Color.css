@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  height: 180px;
   position: relative;
 }
 
@@ -60,6 +61,10 @@
   align-items: center;
 }
 
+.colorPicker{
+  display: flex;
+}
+
 .add-brand-colors {
   display: flex;
   align-items: center;
@@ -89,7 +94,7 @@
   font-family: "Anek Latin", sans-serif;
   font-size: 16px;
   color: #fff;
-  background: url(/images/pen.png);
+  background: url(/images/add.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
