@@ -113,6 +113,7 @@
   border: 1px solid #38cbe9;
   background-color: rgb(85, 199, 57);
   border-radius: 3px;
+  position: relative;
 }
 
 .reset-color {

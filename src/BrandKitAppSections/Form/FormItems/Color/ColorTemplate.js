@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { ChromePicker } from "react-color";
+import { ChromePicker  } from "react-color";
 
 import "./Color.css";
 import ColorDiv from "./ColorDiv";
@@ -14,6 +14,7 @@ import {
 import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlice";
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
+import { resetColors } from "../../../../redux/features/DivsCollectionReducerSlice";
 
 const ColorTemplate = () => {
   const [currentColor, setCurrentColor] = useState();
@@ -23,7 +24,7 @@ const ColorTemplate = () => {
     dispatch(selectedColorDiv({
       id: generateId(),
       color: color.hex,
-    }))
+    }));
     dispatch(colorPickerSelectedState(false));
   };
 
@@ -31,7 +32,6 @@ const ColorTemplate = () => {
 
   const COLOR_PICKER = useSelector(selectColorPickerState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-  console.log(COLORS_COLLECTION)
 
   return (
     <div className="color-template">
@@ -51,7 +51,7 @@ const ColorTemplate = () => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={currentColor} onChange={handleColor} />
+          <ChromePicker color={currentColor} disableAlpha={true} onChangeComplete={handleColor} />
         </div>
       )}
       <div className="selected-colors">
@@ -60,7 +60,7 @@ const ColorTemplate = () => {
         })}
       </div>
       <div className="reset-color">
-        <button type="reset" className="reset-btn">
+        <button type="reset" className="reset-btn" onClick={() => resetColors(generateId())}>
           Reset
         </button>
       </div>
