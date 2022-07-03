@@ -60,7 +60,7 @@ const ColorTemplate = () => {
         })}
       </div>
       <div className="reset-color">
-        <button type="reset" className="reset-btn" onClick={() => resetColors(generateId())}>
+        <button type="reset" className="reset-btn">
           Reset
         </button>
       </div>
