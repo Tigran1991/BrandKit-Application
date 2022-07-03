@@ -1,7 +1,7 @@
 import { colorDivReducer } from "./ColorDivReducerSlice";
 
 export const colorDivCollectionReducer = (state = [], action) => {
-  if (action.type === "ADD_COLLECTION") {
+  if (action.type === "ADD-COLOR-DIV") {
     return [...state, colorDivReducer(undefined, action)];
   }
 

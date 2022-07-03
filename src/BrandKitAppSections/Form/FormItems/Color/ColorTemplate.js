@@ -16,14 +16,15 @@ import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
 
 const ColorTemplate = () => {
-  const [currentColor, setCurrentColor] = useState("#fff");
+  const [currentColor, setCurrentColor] = useState();
 
   const handleColor = (color) => {
     setCurrentColor(color.hex);
     dispatch(selectedColorDiv({
-      id: generateId,
+      id: generateId(),
       color: color.hex,
     }))
+    dispatch(colorPickerSelectedState(false));
   };
 
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const ColorTemplate = () => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={currentColor} onChangeComplete={handleColor} />
+          <ChromePicker color={currentColor} onChange={handleColor} />
         </div>
       )}
       <div className="selected-colors">
