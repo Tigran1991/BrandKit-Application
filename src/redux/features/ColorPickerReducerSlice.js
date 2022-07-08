@@ -1,28 +1,27 @@
-export const colorPickerReducer = (state={}, action) => {
-    if(action.type === "ADD-COLOR_PICKER") {
-        return {
-            ...state,
-            app: action.payload.app,
-        }
-    }
+export const colorPickerReducer = (state = {}, action) => {
+  if (action.type === "ADD-COLOR_PICKER") {
+    return {
+      ...state,
+      app: action.payload.app,
+    };
+  }
 
-    return state;
-}
+  return state;
+};
 
 export const initialColorPicker = {
-    app: false
-}
+  app: false,
+};
 
 export const selectColorPickerState = (state) => {
-    return state.colorPicker.app
-}
+  return state.colorPicker.app;
+};
 
 export const colorPickerSelectedState = (status) => {
-    return {
-        type: "ADD-COLOR_PICKER",
-        payload: {
-            app: status,
-        }
-    }
-}
-
+  return {
+    type: "ADD-COLOR_PICKER",
+    payload: {
+      app: status,
+    },
+  };
+};

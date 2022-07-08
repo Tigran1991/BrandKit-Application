@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { ChromePicker  } from "react-color";
+import { ChromePicker } from "react-color";
 
 import "./Color.css";
 import ColorDiv from "./ColorDiv";
@@ -11,7 +11,7 @@ import {
   selectColorPickerState,
   colorPickerSelectedState,
 } from "../../../../redux/features/ColorPickerReducerSlice";
-import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlice";
+import { selectedColorDiv } from "../../../../redux/features/DivReducerSlice";
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
 import { resetColors } from "../../../../redux/features/DivsCollectionReducerSlice";
@@ -19,19 +19,25 @@ import { resetColors } from "../../../../redux/features/DivsCollectionReducerSli
 const ColorTemplate = () => {
   const [currentColor, setCurrentColor] = useState();
 
-  const handleColor = (color) => {
-    setCurrentColor(color.hex);
-    dispatch(selectedColorDiv({
-      id: generateId(),
-      color: color.hex,
-    }));
-    dispatch(colorPickerSelectedState(false));
-  };
-
   const dispatch = useDispatch();
 
   const COLOR_PICKER = useSelector(selectColorPickerState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
+
+  const colorPickerHandler = () => {
+    dispatch(colorPickerSelectedState(true));
+  };
+
+  const colorHandler = (color) => {
+    setCurrentColor(color.hex);
+    dispatch(
+      selectedColorDiv({
+        id: generateId(),
+        color: color.hex,
+      })
+    );
+    dispatch(colorPickerSelectedState(false));
+  };
 
   return (
     <div className="color-template">
@@ -45,22 +51,26 @@ const ColorTemplate = () => {
         <div className="add-brand-colors">
           <button
             className="add-colors-btn"
-            onClick={() => dispatch(colorPickerSelectedState(true))}
+            onClick={colorPickerHandler}
           ></button>
         </div>
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={currentColor} disableAlpha={true} onChangeComplete={handleColor} />
+          <ChromePicker color={currentColor} onChangeComplete={colorHandler} />
         </div>
       )}
       <div className="selected-colors">
-        {COLORS_COLLECTION.map(color => {
-          return <ColorDiv colorItemData={color} key={color.id} />
+        {COLORS_COLLECTION.map((color) => {
+          return <ColorDiv colorItemData={color} key={color.id} />;
         })}
       </div>
       <div className="reset-color">
-        <button type="reset" className="reset-btn">
+        <button
+          type="reset"
+          className="reset-btn"
+          onClick={() => dispatch(resetColors([]))}
+        >
           Reset
         </button>
       </div>
