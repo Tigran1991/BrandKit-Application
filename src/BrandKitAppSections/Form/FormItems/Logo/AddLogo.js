@@ -15,10 +15,10 @@ const AddLogo = () => {
 
   return (
     <div className="logo-section">
-      <div className="brand-logo-label">
+      <div className="brand-logo-label" style={{justifyContent: LOGO ? 'flex-start' : 'center'}}>
         <button
           className="logo-btn"
-          onClick={() => dispatch(showLogoTemplateState(true))}
+          onClick={() => dispatch(showLogoTemplateState(!LOGO))}
         >
           Brand Logo
         </button>

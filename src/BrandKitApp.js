@@ -7,12 +7,14 @@ import CollectionStorage from "./BrandKitAppSections/Collections/CollectionStora
 import { appSelectedState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectBrandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
+import { selectedColorDivCollection } from "./redux/features/DivsCollectionReducerSlice";
 
 const BrandKitApp = () => {
   const dispatch = useDispatch();
 
   const BRAND_KIT_APP = useSelector(selectBrandKitAppState);
   const BRAND_KIT_COLLECTIONS = useSelector(selectedCollections);
+  const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
   return (
     <div className="brand-kit-board">
@@ -32,7 +34,9 @@ const BrandKitApp = () => {
       {BRAND_KIT_APP && (
         <>
           <Form formData={BRAND_KIT_COLLECTIONS} />
-          <CollectionStorage collectionData={BRAND_KIT_COLLECTIONS} />
+          {COLORS_COLLECTION.length !== 0 &&
+            <CollectionStorage collectionData={BRAND_KIT_COLLECTIONS} />
+          }
         </>
       )}
     </div>

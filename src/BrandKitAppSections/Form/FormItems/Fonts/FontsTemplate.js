@@ -10,12 +10,6 @@ const FontsTemplate = () => {
 
   return (
     <div className="fonts-template">
-      <button
-        className="close-fonts-template-btn"
-        onClick={() => dispatch(closeFontsTemplateState(false))}
-      >
-        Close
-      </button>
       <div className="add-font-btn">
           <input type="file" style={{ display: "none" }} id="download-logo" />
       </div>

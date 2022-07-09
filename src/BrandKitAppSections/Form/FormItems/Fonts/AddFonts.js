@@ -15,10 +15,10 @@ const AddFonts = () => {
 
   return (
     <div className="fonts-section">
-      <div className="brand-fonts-label">
+      <div className="brand-fonts-label" style={{justifyContent: FONTS ? 'flex-start' : 'center'}}>
         <button
           className="logo-btn"
-          onClick={() => dispatch(showFontsTemplateState(true))}
+          onClick={() => dispatch(showFontsTemplateState(!FONTS))}
         >
           Brand Fonts
         </button>

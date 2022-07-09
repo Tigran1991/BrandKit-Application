@@ -23,7 +23,7 @@ const ColorTemplate = () => {
 
   const COLOR_PICKER = useSelector(selectColorPickerState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-
+  
   const colorPickerHandler = () => {
     dispatch(colorPickerSelectedState(true));
   };
@@ -41,12 +41,6 @@ const ColorTemplate = () => {
 
   return (
     <div className="color-template">
-      <button
-        className="close-color-template-btn"
-        onClick={() => dispatch(closeColorTemplateState(false))}
-      >
-        Close
-      </button>
       <div className="add-colors">
         <div className="add-brand-colors">
           <button

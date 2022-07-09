@@ -9,11 +9,13 @@ import { selectedItem } from "../../redux/features/ItemReducerSlice";
 import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
+import { selectedColorDivCollection } from "../../redux/features/DivsCollectionReducerSlice";
 
 const Form = (props) => {
   const dispatch = useDispatch();
 
   const BUTTON_STATE = useSelector(selectSaveButtonState);
+  const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -23,17 +25,15 @@ const Form = (props) => {
     }
   });
 
-  const SHOW = true;
-
   return (
     <div className="brand-kit-form">
 
-      {SHOW && <AddLogo />}
-      {<AddColors />}
-      {<AddFonts />}
+      <AddLogo />
+      <AddColors />
+      <AddFonts />
 
       <div className="save-brand-kit">
-        <button
+        {COLORS_COLLECTION.length !== 0 && <button
           className="save-brand-kit-btn"
           disabled={BUTTON_STATE}
           onClick={() =>
@@ -45,9 +45,8 @@ const Form = (props) => {
             )
           }
         >
-          {" "}
-          Save{" "}
-        </button>
+          Save
+        </button>}
       </div>
     </div>
   );
