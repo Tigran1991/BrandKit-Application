@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ChromePicker } from "react-color";
 
 import "./Color.css";
 import ColorDiv from "./ColorDiv";
-import { closeColorTemplateState } from "../../../../redux/features/form-items-templates/ColorTemplateReducerSlice";
 import { useSelector } from "react-redux";
 import {
   selectColorPickerState,
@@ -23,7 +22,7 @@ const ColorTemplate = () => {
 
   const COLOR_PICKER = useSelector(selectColorPickerState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-  
+
   const colorPickerHandler = () => {
     dispatch(colorPickerSelectedState(true));
   };
@@ -38,6 +37,10 @@ const ColorTemplate = () => {
     );
     dispatch(colorPickerSelectedState(false));
   };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', () => dispatch(colorPickerSelectedState(false)));
+  })
 
   return (
     <div className="color-template">

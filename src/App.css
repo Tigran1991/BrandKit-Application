@@ -169,3 +169,9 @@
   background-color: red;
   font-size: 14px;
 }
+
+.colors{
+  width: 30px;
+  height: 30px;
+  background-color: green;
+}

@@ -10,12 +10,16 @@ import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectedColorDivCollection } from "../../redux/features/DivsCollectionReducerSlice";
+// import { resetAfterSave } from "../../redux/features/DivsCollectionReducerSlice";
 
 const Form = (props) => {
   const dispatch = useDispatch();
 
   const BUTTON_STATE = useSelector(selectSaveButtonState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
+
+  const COLORS = COLORS_COLLECTION.map(collection => collection.color);
+  console.log(COLORS);
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -27,26 +31,28 @@ const Form = (props) => {
 
   return (
     <div className="brand-kit-form">
-
       <AddLogo />
       <AddColors />
       <AddFonts />
 
       <div className="save-brand-kit">
-        {COLORS_COLLECTION.length !== 0 && <button
-          className="save-brand-kit-btn"
-          disabled={BUTTON_STATE}
-          onClick={() =>
-            dispatch(
-              selectedItem({
-                id: generateId(),
-                image: "Tesla_Motors.png",
-              })
-            )
-          }
-        >
-          Save
-        </button>}
+        {COLORS_COLLECTION.length !== 0 && (
+          <button
+            className="save-brand-kit-btn"
+            disabled={BUTTON_STATE}
+            onClick={() => {
+              dispatch(
+                selectedItem({
+                  id: generateId(),
+                  color: COLORS,
+                })
+              );
+              // dispatch(resetAfterSave([]))
+            }}
+          >
+            Save
+          </button>
+        )}
       </div>
     </div>
   );

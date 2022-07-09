@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ColorTemplate from "./ColorTemplate";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   colorTemplateState,
   showColorTemplateState,
 } from "../../../../redux/features/form-items-templates/ColorTemplateReducerSlice";
-import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
 
 import "./Color.css";
 

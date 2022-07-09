@@ -10,6 +10,9 @@ export const colorDivCollectionReducer = (state = [], action) => {
   if (action.type === "RESET_COLORS") {
     return action.payload.colorDivState;
   }
+  if (action.type === "RESET_AFTER_SAVE") {
+    return action.payload.colorDivState;
+  }
 
   return state;
 };
@@ -30,6 +33,15 @@ export const addCollectionData = (collectionId) => {
 export const resetColors = (colorDiv) => {
   return {
     type: "RESET_COLORS",
+    payload: {
+      colorDivState: colorDiv,
+    },
+  };
+};
+
+export const resetAfterSave = (colorDiv) => {
+  return {
+    type: "RESET_AFTER_SAVE",
     payload: {
       colorDivState: colorDiv,
     },
