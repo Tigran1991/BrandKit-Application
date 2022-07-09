@@ -10,7 +10,7 @@ import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectedColorDivCollection } from "../../redux/features/DivsCollectionReducerSlice";
-// import { resetAfterSave } from "../../redux/features/DivsCollectionReducerSlice";
+import { resetAfterSave } from "../../redux/features/DivsCollectionReducerSlice";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -18,8 +18,7 @@ const Form = (props) => {
   const BUTTON_STATE = useSelector(selectSaveButtonState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
-  const COLORS = COLORS_COLLECTION.map(collection => collection.color);
-  console.log(COLORS);
+  const COLORS = COLORS_COLLECTION.map((collection) => collection.color);
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -47,7 +46,7 @@ const Form = (props) => {
                   color: COLORS,
                 })
               );
-              // dispatch(resetAfterSave([]))
+              dispatch(resetAfterSave([]));
             }}
           >
             Save

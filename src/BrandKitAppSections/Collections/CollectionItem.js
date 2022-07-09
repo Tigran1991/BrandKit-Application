@@ -4,16 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import "../../App.css";
 import { addCollectionData } from "../../redux/features/UserCollectionsReducerSlice";
 import { selectedColorDivCollection } from "../../redux/features/DivsCollectionReducerSlice";
+import ItemColors from "./ItemColors";
+import { generateId } from "../../utils";
 
 const CollectionItem = (props) => {
-  console.log(props);
-
   const dispatch = useDispatch();
 
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-
-  const COLORS = COLORS_COLLECTION.map((collection) => collection.color);
-  console.log(COLORS);
+  const COLORS = COLORS_COLLECTION.map(collection => collection.color);
 
   const ID = props.id;
 
@@ -25,8 +23,8 @@ const CollectionItem = (props) => {
       >
         X
       </button>
-      {COLORS.map((color) => {
-        return <div className="colors" style={{ backgroundColor: `${color}` }}></div>;
+      {COLORS.map(color => {
+        return <ItemColors colorData={color} key={ID + generateId()}/>;
       })}
     </div>
   );

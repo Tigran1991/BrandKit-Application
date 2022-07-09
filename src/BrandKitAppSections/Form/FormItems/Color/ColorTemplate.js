@@ -14,6 +14,7 @@ import { selectedColorDiv } from "../../../../redux/features/DivReducerSlice";
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
 import { resetColors } from "../../../../redux/features/DivsCollectionReducerSlice";
+import { selectedColor } from "../../../../redux/features/ItemColorReducerSlice";
 
 const ColorTemplate = () => {
   const [currentColor, setCurrentColor] = useState();
@@ -31,6 +32,12 @@ const ColorTemplate = () => {
     setCurrentColor(color.hex);
     dispatch(
       selectedColorDiv({
+        id: generateId(),
+        color: color.hex,
+      })
+    );
+    dispatch(
+      selectedColor({
         id: generateId(),
         color: color.hex,
       })

@@ -9,6 +9,7 @@ import { showFontsTemplateReducer, initialFontsTemplateState } from "../features
 import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
 import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerReducerSlice.js";
 import { colorDivCollectionReducer } from "../features/DivsCollectionReducerSlice.js";
+import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
 
 const store = createStore(
   combineReducers({
@@ -21,6 +22,7 @@ const store = createStore(
     logos: logosReducer,
     colorPicker: colorPickerReducer,
     colorDivCollection: colorDivCollectionReducer,
+    itemColors: itemColorsReducer,
   }),
   {
     brandKitApp: initialApp,

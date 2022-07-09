@@ -5,8 +5,6 @@ import CollectionItem from "./CollectionItem.js";
 
 const UsersCollectionStorage = (props) => {
 
-    console.log(props);
-
     return (
         <div className="users-brand-kit-board">
             {props.collections.map(brandKits => {
