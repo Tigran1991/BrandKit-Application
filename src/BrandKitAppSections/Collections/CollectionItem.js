@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import useEffect from 'react'
 
 import "../../App.css";
 import { deleteCollectionItem } from "../../redux/features/ItemColorsReducerSlice";
@@ -14,9 +13,6 @@ const CollectionItem = (props) => {
 
   const [title, setTitle] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(props.collectionData.title);
-
-  const INPUT = false;
-  let TITLE = true;
 
   const titleHandler = (event) => {
     setCurrentTitle(event.target.value);
