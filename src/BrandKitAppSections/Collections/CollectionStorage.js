@@ -6,7 +6,7 @@ import EmptyCollectionStorage from "./EmptyCollectionStorage";
 import UsersCollectionStorage from "./UsersCollectionStorage";
 import { selectedColorsForItem } from "../../redux/features/ItemColorsReducerSlice";
 
-const CollectionStorage = (props) => {
+const CollectionStorage = () => {
 
     const COLORS_COLLECTION = useSelector(selectedColorsForItem);
 

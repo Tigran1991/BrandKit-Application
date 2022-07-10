@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { useDispatch } from "react-redux";
 import { deleteColorsDivItem } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
 import "./Color.css";
 
-const ColorDiv = (props) => {
+const ColorDiv = memo((props) => {
   const dispatch = useDispatch();
   const ID = props.colorItemData.id;
 
@@ -23,6 +23,6 @@ const ColorDiv = (props) => {
       </button>
     </div>
   );
-};
+});
 
 export default ColorDiv;

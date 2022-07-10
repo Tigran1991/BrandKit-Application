@@ -14,6 +14,7 @@ const BrandKitApp = () => {
 
   const BRAND_KIT_APP = useSelector(selectBrandKitAppState);
   const BRAND_KIT_COLLECTIONS = useSelector(selectedCollections);
+  console.log(BRAND_KIT_COLLECTIONS);
 
   return (
     <div className="brand-kit-board">

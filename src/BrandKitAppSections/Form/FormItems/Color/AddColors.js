@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import ColorTemplate from "./ColorTemplate";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
@@ -8,7 +8,7 @@ import {
 
 import "./Color.css";
 
-const AddColors = () => {
+const AddColors = memo(() => {
   const dispatch = useDispatch();
 
   const COLOR = useSelector(colorTemplateState);
@@ -26,6 +26,6 @@ const AddColors = () => {
       {COLOR && <ColorTemplate />}
     </div>
   );
-};
+});
 
 export default AddColors;

@@ -1,12 +1,8 @@
-import React from "react";
-import { useDispatch } from "react-redux/es/exports";
+import React, { memo } from "react";
 
 import "./Fonts.css";
-import { closeFontsTemplateState } from "../../../../redux/features/form-items-templates/FontsTemplateReducerSlice";
 
-const FontsTemplate = () => {
-
-  const dispatch = useDispatch();
+const FontsTemplate = memo(() => {
 
   return (
     <div className="fonts-template">
@@ -23,6 +19,6 @@ const FontsTemplate = () => {
       </div>
     </div>
   );
-};
+});
 
 export default FontsTemplate;

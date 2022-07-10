@@ -1,11 +1,8 @@
-import React from "react";
-import { useDispatch } from "react-redux/es/exports";
+import React, { memo } from "react";
 
 import "./Logo.css";
-import { closeLogoTemplateState } from "../../../../redux/features/form-items-templates/LogoTemplateReducerSlice";
-import logo from '../Logo/logo-images/logo.png';
 
-const LogoTemplate = () => {
+const LogoTemplate = memo(() => {
 
   return (
     <div className="logo-template">
@@ -45,6 +42,6 @@ const LogoTemplate = () => {
       </div>
     </div>
   );
-};
+});
 
 export default LogoTemplate;

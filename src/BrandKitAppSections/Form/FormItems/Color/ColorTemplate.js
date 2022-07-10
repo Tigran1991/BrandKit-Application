@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ChromePicker } from "react-color";
@@ -15,7 +15,7 @@ import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 import { resetColors } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
-const ColorTemplate = () => {
+const ColorTemplate = memo(() => {
   const [currentColor, setCurrentColor] = useState();
 
   const dispatch = useDispatch();
@@ -74,6 +74,6 @@ const ColorTemplate = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ColorTemplate;
