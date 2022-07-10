@@ -9,8 +9,9 @@ import { selectedItem } from "../../redux/features/ItemReducerSlice";
 import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
-import { selectedColorDivCollection } from "../../redux/features/DivsCollectionReducerSlice";
-import { resetAfterSave } from "../../redux/features/DivsCollectionReducerSlice";
+import { selectedColorDivCollection } from "../../redux/features/ColorDivCollectionReducerSlice.js";
+import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSlice.js";
+import { selectedColor } from "../../redux/features/ItemColorReducerSlice";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Form = (props) => {
 
   return (
     <div className="brand-kit-form">
+
       <AddLogo />
       <AddColors />
       <AddFonts />
@@ -40,9 +42,16 @@ const Form = (props) => {
             className="save-brand-kit-btn"
             disabled={BUTTON_STATE}
             onClick={() => {
+              const ID = generateId();
               dispatch(
                 selectedItem({
-                  id: generateId(),
+                  id: ID,
+                  color: COLORS,
+                })
+              );
+              dispatch(
+                selectedColor({
+                  id: ID + 'itemColors',
                   color: COLORS,
                 })
               );

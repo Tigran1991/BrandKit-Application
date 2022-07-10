@@ -7,6 +7,7 @@ import CollectionStorage from "./BrandKitAppSections/Collections/CollectionStora
 import { appSelectedState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectBrandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
+import { resetColors } from "./redux/features/ColorDivCollectionReducerSlice.js";
 
 const BrandKitApp = () => {
   const dispatch = useDispatch();
@@ -18,15 +19,14 @@ const BrandKitApp = () => {
     <div className="brand-kit-board">
       <button
         className="add-brand-kit-btn"
-        onClick={() => dispatch(appSelectedState(!BRAND_KIT_APP))}
+        onClick={() => {
+          dispatch(appSelectedState(!BRAND_KIT_APP));
+          dispatch(resetColors([]));
+        }}
       >
-        {!BRAND_KIT_APP &&
-          <p>Add BrandKit</p>
-        }
+        {!BRAND_KIT_APP && <p>Add BrandKit</p>}
 
-        {BRAND_KIT_APP &&
-          <p>Close BrandKit</p>
-        }
+        {BRAND_KIT_APP && <p>Close BrandKit</p>}
       </button>
 
       {BRAND_KIT_APP && (

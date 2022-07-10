@@ -8,7 +8,7 @@ const ItemColors = (props) => {
     <>
       <div
         className="colors"
-        style={{ backgroundColor: `${props.colorData.id}` }}
+        style={{ backgroundColor: `${props.colorData}` }}
         key={props.colorData.id}
       ></div>
     </>

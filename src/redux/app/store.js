@@ -8,7 +8,7 @@ import { showColorTemplateReducer, initialColorTemplateState } from "../features
 import { showFontsTemplateReducer, initialFontsTemplateState } from "../features/form-items-templates/FontsTemplateReducerSlice.js";
 import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
 import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerReducerSlice.js";
-import { colorDivCollectionReducer } from "../features/DivsCollectionReducerSlice.js";
+import { colorDivCollectionReducer } from "../features/ColorDivCollectionReducerSlice.js.js";
 import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
 
 const store = createStore(

@@ -10,11 +10,10 @@ import {
   selectColorPickerState,
   colorPickerSelectedState,
 } from "../../../../redux/features/ColorPickerReducerSlice";
-import { selectedColorDiv } from "../../../../redux/features/DivReducerSlice";
+import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlice";
 import { generateId } from "../../../../utils";
-import { selectedColorDivCollection } from "../../../../redux/features/DivsCollectionReducerSlice";
-import { resetColors } from "../../../../redux/features/DivsCollectionReducerSlice";
-import { selectedColor } from "../../../../redux/features/ItemColorReducerSlice";
+import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
+import { resetColors } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
 const ColorTemplate = () => {
   const [currentColor, setCurrentColor] = useState();
@@ -29,16 +28,11 @@ const ColorTemplate = () => {
   };
 
   const colorHandler = (color) => {
+    const ID = generateId();
     setCurrentColor(color.hex);
     dispatch(
       selectedColorDiv({
-        id: generateId(),
-        color: color.hex,
-      })
-    );
-    dispatch(
-      selectedColor({
-        id: generateId(),
+        id: ID,
         color: color.hex,
       })
     );

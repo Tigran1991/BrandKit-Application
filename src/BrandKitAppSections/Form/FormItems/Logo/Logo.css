@@ -48,6 +48,11 @@
   background-color: #333;
   color: #fff;
   font-size: 16px;
+  transition: .9ms linear;
+}
+
+.logo-btn:hover{
+  text-decoration: underline;
 }
 
 .selected-logos {
