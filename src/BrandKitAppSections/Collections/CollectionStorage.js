@@ -10,7 +10,7 @@ const CollectionStorage = (props) => {
         <div className="brand-kit-collections-container">
             {props.collectionData.length === 0 && <EmptyCollectionStorage />}
 
-            {props.collectionData.length > 0 && <UsersCollectionStorage collections={props.collectionData} />}
+            {props.collectionData.length > 0 && <UsersCollectionStorage />}
         </div>
     )
 

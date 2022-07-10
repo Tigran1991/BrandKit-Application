@@ -21,7 +21,7 @@ export const selectedColorDivCollection = (state) => {
   return state.colorDivCollection;
 };
 
-export const addCollectionData = (collectionId) => {
+export const deleteColorsDivItem = (collectionId) => {
   return {
     type: "DELETE_ITEM",
     payload: {

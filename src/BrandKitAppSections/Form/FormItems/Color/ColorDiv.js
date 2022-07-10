@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addCollectionData } from "../../../../redux/features/UserCollectionsReducerSlice";
-import { deleteItemsColor } from "../../../../redux/features/ItemColorsReducerSlice";
+import { deleteColorsDivItem } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
 import "./Color.css";
 
@@ -17,8 +16,7 @@ const ColorDiv = (props) => {
       <button
         className="delete-item"
         onClick={() => {
-          dispatch(addCollectionData(ID));
-          dispatch(deleteItemsColor(ID + 'itemColors'));
+          dispatch(deleteColorsDivItem(ID));
         }}
       >
         X

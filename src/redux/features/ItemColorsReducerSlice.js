@@ -4,7 +4,7 @@ export const itemColorsReducer = (state = [], action) => {
   if (action.type === "ADD-COLOR") {
     return [...state, itemColorReducer(undefined, action)];
   }
-  if (action.type === "DELETE_ITEMS_COLOR") {
+  if (action.type === "DELETE_COLLECTIONS_ITEM") {
     return state.filter((item) => item.id !== action.payload.id);
   }
   if (action.type === "RESET_ITEM_COLORS") {
@@ -27,9 +27,9 @@ export const resetAfterDeleteItem = (colorDiv) => {
   };
 };
 
-export const deleteItemsColor = (collectionId) => {
+export const deleteCollectionItem = (collectionId) => {
   return {
-    type: "DELETE_ITEMS_COLOR",
+    type: "DELETE_COLLECTIONS_ITEM",
     payload: {
       id: collectionId,
     },

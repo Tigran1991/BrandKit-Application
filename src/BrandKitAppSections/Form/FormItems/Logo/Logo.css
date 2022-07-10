@@ -49,6 +49,7 @@
   color: #fff;
   font-size: 16px;
   transition: .9ms linear;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .logo-btn:hover{
