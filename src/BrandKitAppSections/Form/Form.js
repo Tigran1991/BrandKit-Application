@@ -47,12 +47,14 @@ const Form = (props) => {
                 selectedItem({
                   id: ID,
                   color: COLORS,
+                  title: 'Title',
                 })
               );
               dispatch(
                 selectedColor({
                   id: ID + 'itemColors',
                   color: COLORS,
+                  title: 'Title',
                 })
               );
               dispatch(resetAfterSave([]));

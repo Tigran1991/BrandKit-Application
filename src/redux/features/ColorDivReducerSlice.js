@@ -16,6 +16,7 @@ export const selectedColorDiv = (newColorDiv) => {
     payload: {
       id: newColorDiv.id,
       color: newColorDiv.color,
+      title: 'Title',
     },
   };
 };

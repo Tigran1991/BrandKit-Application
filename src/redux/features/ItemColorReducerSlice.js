@@ -4,6 +4,7 @@ export const itemColorReducer = (state = {}, action) => {
         ...state,
         id: action.payload.id,
         color: action.payload.color,
+        title: action.payload.title,
       };
     }
   
@@ -16,6 +17,7 @@ export const itemColorReducer = (state = {}, action) => {
       payload: {
         id: newColorDiv.id,
         color: newColorDiv.color,
+        title: newColorDiv.title,
       },
     };
   };

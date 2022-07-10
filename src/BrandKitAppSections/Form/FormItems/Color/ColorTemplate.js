@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ChromePicker } from "react-color";
@@ -17,6 +17,7 @@ import { resetColors } from "../../../../redux/features/ColorDivCollectionReduce
 
 const ColorTemplate = memo(() => {
   const [currentColor, setCurrentColor] = useState();
+  const menuRef = useRef();
 
   const dispatch = useDispatch();
 
@@ -36,15 +37,25 @@ const ColorTemplate = memo(() => {
         color: color.hex,
       })
     );
-    dispatch(colorPickerSelectedState(false));
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', () => dispatch(colorPickerSelectedState(false)));
-  })
+    
+    const handler = (event) => {
+      if (!menuRef.current.contains(event.target)) {
+        dispatch(colorPickerSelectedState(false));
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
 
   return (
-    <div className="color-template">
+    <div ref={menuRef} className="color-template">
       <div className="add-colors">
         <div className="add-brand-colors">
           <button
@@ -55,7 +66,7 @@ const ColorTemplate = memo(() => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={currentColor} onChangeComplete={colorHandler} />
+          <ChromePicker color={currentColor} onChange={colorHandler} />
         </div>
       )}
       <div className="selected-colors">

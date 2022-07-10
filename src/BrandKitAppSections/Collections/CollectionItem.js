@@ -1,5 +1,6 @@
-import React from "react";
-import { useDispatch} from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import useEffect from 'react'
 
 import "../../App.css";
 import { deleteCollectionItem } from "../../redux/features/ItemColorsReducerSlice";
@@ -10,6 +11,20 @@ const CollectionItem = (props) => {
   const dispatch = useDispatch();
 
   const ID = props.collectionData.id;
+
+  const [title, setTitle] = useState(false);
+  const [currentTitle, setCurrentTitle] = useState(props.collectionData.title);
+
+  const INPUT = false;
+  let TITLE = true;
+
+  const titleHandler = (event) => {
+    setCurrentTitle(event.target.value);
+  }
+
+  const submitHandler = () => {
+    setTitle(false);
+  }
 
   return (
     <div className="brand-kit-collection">
@@ -22,10 +37,17 @@ const CollectionItem = (props) => {
         X
       </button>
       <div className="itemColors">
-        {props.collectionData.color.map(color => {
-          return <ItemColors colorData={color} key={ID + generateId()} />
-          })
-        }
+        {props.collectionData.color.map((color) => {
+          return <ItemColors colorData={color} key={ID + generateId()} />;
+        })}
+      </div>
+      <div className="collection">
+        {title && (
+          <form className="collection-form" onSubmit={submitHandler} >
+            <input className="collection-name" type="text" onChange={titleHandler} />
+          </form>
+        )}
+        {!title && <h3 className="collection-title" onClick={() => setTitle(true)}>{currentTitle}</h3>}
       </div>
     </div>
   );
