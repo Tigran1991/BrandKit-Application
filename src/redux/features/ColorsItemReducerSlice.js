@@ -9,7 +9,7 @@ export const colorItemReducer = (state = [], action) => {
 };
 
 export const selectedColorItems = (state) => {
-  return state.colorDivCollection;
+  return state.colors;
 };
 
 
