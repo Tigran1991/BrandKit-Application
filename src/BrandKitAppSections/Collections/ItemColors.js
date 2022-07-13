@@ -2,15 +2,11 @@ import React from "react";
 
 import "../../App.css";
 
-const ItemColors = (props) => {
+const ItemColors = () => {
 
   return (
     <>
-      <div
-        className="colors"
-        style={{ backgroundColor: `${props.colorData}` }}
-        key={props.colorData.id}
-      ></div>
+      <div className="colors"></div>
     </>
   );
 };

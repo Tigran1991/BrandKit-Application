@@ -1,5 +1,4 @@
 import React, { memo, useEffect, useRef } from "react";
-import { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ChromePicker } from "react-color";
 
@@ -16,8 +15,9 @@ import { selectedColorDivCollection } from "../../../../redux/features/ColorDivC
 import { resetColors } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
 const ColorTemplate = memo(() => {
-  const [currentColor, setCurrentColor] = useState();
-  const menuRef = useRef();
+  const colorPickerRef = useRef();
+  const currentColor = useRef();
+  const INITIAL_COLOR = "green";
 
   const dispatch = useDispatch();
 
@@ -26,23 +26,21 @@ const ColorTemplate = memo(() => {
 
   const colorPickerHandler = () => {
     dispatch(colorPickerSelectedState(true));
-  };
-
-  const colorHandler = (color) => {
     const ID = generateId();
-    setCurrentColor(color.hex);
     dispatch(
       selectedColorDiv({
         id: ID,
-        color: color.hex,
       })
     );
   };
 
+  const colorHandler = (color) => {
+    currentColor.current.style.backgroundColor = color.hex;
+  };
+
   useEffect(() => {
-    
     const handler = (event) => {
-      if (!menuRef.current.contains(event.target)) {
+      if (!colorPickerRef.current.contains(event.target)) {
         dispatch(colorPickerSelectedState(false));
       }
     };
@@ -55,7 +53,7 @@ const ColorTemplate = memo(() => {
   });
 
   return (
-    <div ref={menuRef} className="color-template">
+    <div ref={colorPickerRef} className="color-template">
       <div className="add-colors">
         <div className="add-brand-colors">
           <button
@@ -66,12 +64,18 @@ const ColorTemplate = memo(() => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={currentColor} onChange={colorHandler} />
+          <ChromePicker onChange={colorHandler} ref={currentColor} />
         </div>
       )}
       <div className="selected-colors">
         {COLORS_COLLECTION.map((color) => {
-          return <ColorDiv colorItemData={color} key={color.id} />;
+          return (
+            <ColorDiv
+              colorItemData={color}
+              colorData={currentColor}
+              key={color.id}
+            />
+          );
         })}
       </div>
       <div className="reset-color">

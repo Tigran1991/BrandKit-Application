@@ -5,7 +5,6 @@ import "../../App.css";
 import AddLogo from "./FormItems/Logo/AddLogo";
 import AddFonts from "./FormItems/Fonts/AddFonts";
 import AddColors from "./FormItems/Color/AddColors";
-import { selectedItem } from "../../redux/features/ItemReducerSlice";
 import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
@@ -18,8 +17,7 @@ const Form = (props) => {
 
   const BUTTON_STATE = useSelector(selectSaveButtonState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-
-  const COLORS = COLORS_COLLECTION.map((collection) => collection.color);
+  console.log(COLORS_COLLECTION);
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -44,16 +42,8 @@ const Form = (props) => {
             onClick={() => {
               const ID = generateId();
               dispatch(
-                selectedItem({
-                  id: ID,
-                  color: COLORS,
-                  title: 'Title',
-                })
-              );
-              dispatch(
                 selectedColor({
                   id: ID + 'itemColors',
-                  color: COLORS,
                   title: 'Title',
                 })
               );

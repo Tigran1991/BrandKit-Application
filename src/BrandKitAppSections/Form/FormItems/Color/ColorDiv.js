@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteColorsDivItem } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
@@ -9,10 +9,7 @@ const ColorDiv = memo((props) => {
   const ID = props.colorItemData.id;
 
   return (
-    <div
-      className="added-colors"
-      style={{ backgroundColor: props.colorItemData.color }}
-    >
+    <div className="added-colors" ref={props.colorData}>
       <button
         className="delete-item"
         onClick={() => {
