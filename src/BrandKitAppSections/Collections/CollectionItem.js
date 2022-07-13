@@ -33,7 +33,9 @@ const CollectionItem = (props) => {
         X
       </button>
       <div className="itemColors">
-        <ItemColors key={ID + generateId()} />
+        {props.collectionData.color.map((color) => {
+          return <ItemColors colorData={color} key={ID + generateId()} />;
+        })}
       </div>
       <div className="collection">
         {title && (

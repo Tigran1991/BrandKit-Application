@@ -35,8 +35,3 @@ export const deleteCollectionItem = (collectionId) => {
     },
   };
 };
-
-
-
-
-

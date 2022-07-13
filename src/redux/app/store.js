@@ -10,7 +10,6 @@ import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
 import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerReducerSlice.js";
 import { colorDivCollectionReducer } from "../features/ColorDivCollectionReducerSlice.js.js";
 import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
-import { colorItemReducer } from "../features/ColorsItemReducerSlice.js";
 
 const store = createStore(
   combineReducers({
@@ -24,7 +23,6 @@ const store = createStore(
     colorPicker: colorPickerReducer,
     colorDivCollection: colorDivCollectionReducer,
     itemColors: itemColorsReducer,
-    colors: colorItemReducer,
   }),
   {
     brandKitApp: initialApp,

@@ -2,7 +2,7 @@ import React from "react";
 
 import "../../App.css";
 
-const ItemColors = () => {
+const ItemColors = (props) => {
 
   return (
     <>

@@ -64,7 +64,7 @@ const ColorTemplate = memo(() => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker onChange={colorHandler} ref={currentColor} />
+          <ChromePicker color={INITIAL_COLOR} onChange={colorHandler} ref={currentColor} />
         </div>
       )}
       <div className="selected-colors">

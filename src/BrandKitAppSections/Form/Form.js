@@ -17,7 +17,10 @@ const Form = (props) => {
 
   const BUTTON_STATE = useSelector(selectSaveButtonState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-  console.log(COLORS_COLLECTION);
+
+  const COLORS = COLORS_COLLECTION.map((collection) => collection.color);
+  
+  console.log(COLORS);
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -44,6 +47,7 @@ const Form = (props) => {
               dispatch(
                 selectedColor({
                   id: ID + 'itemColors',
+                  color: COLORS,
                   title: 'Title',
                 })
               );
