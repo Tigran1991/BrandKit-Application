@@ -5,13 +5,17 @@ import { generateId } from "../../utils";
 
 const ItemColors = (props) => {
 
+  console.log(props.colorData);
+
   return (
-    <>
-      <div
+    <>{props.colorData.map(color => {
+      return (<div
         className="colors"
-        style={{ backgroundColor: props.colorData }}
+        style={{ backgroundColor: color.color }}
         key={generateId()}
-      ></div>
+      ></div>)
+    })}
+      
     </>
   );
 };

@@ -9,6 +9,8 @@ const UsersCollectionStorage = () => {
 
     const COLORS_COLLECTION = useSelector(selectedColorsForItem);
 
+    console.log(COLORS_COLLECTION);
+
     return (
         <div className="users-brand-kit-board">
             {COLORS_COLLECTION.map(collection => {

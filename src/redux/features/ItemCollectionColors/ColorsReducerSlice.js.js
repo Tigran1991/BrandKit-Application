@@ -12,4 +12,3 @@ export const colorsReducer = (state = [], action) => {
 export const selectedColors = (state) => {
   return state.colors;
 };
-

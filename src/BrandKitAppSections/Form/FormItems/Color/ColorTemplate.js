@@ -14,6 +14,8 @@ import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 import { resetColors } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 import { selectedItemColors } from "../../../../redux/features/ItemCollectionColors/ColorReducerSlice";
+import { selectedColors } from "../../../../redux/features/ItemCollectionColors/ColorsReducerSlice.js";
+import { selectedItemsColors } from "../../../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
 
 const ColorTemplate = memo(() => {
   const colorPickerRef = useRef();
@@ -25,6 +27,15 @@ const ColorTemplate = memo(() => {
   const COLOR_PICKER = useSelector(selectColorPickerState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
+  const COLORS = useSelector(selectedColors);
+  const CURRENT_COLOR = COLORS.filter((color) => {
+    if (color === COLORS[COLORS.length - 1]) {
+      return color;
+    }
+  });
+
+  console.log(CURRENT_COLOR.length);
+
   const colorPickerHandler = () => {
     dispatch(colorPickerSelectedState(true));
     const ID = generateId();
@@ -33,6 +44,13 @@ const ColorTemplate = memo(() => {
         id: ID,
       })
     );
+    if(CURRENT_COLOR.length > 0){
+      dispatch(
+        selectedItemsColors({
+          color: CURRENT_COLOR,
+        })
+      );
+    }
   };
 
   const colorHandler = (color) => {
@@ -43,7 +61,7 @@ const ColorTemplate = memo(() => {
         color: color.hex,
       })
     );
-
+    
   };
 
   useEffect(() => {
@@ -85,6 +103,19 @@ const ColorTemplate = memo(() => {
             />
           );
         })}
+      </div>
+      <div className="save-color">
+        <button
+          type="save"
+          className="save-btn"
+          onClick={() => dispatch(
+            selectedItemsColors({
+              color: CURRENT_COLOR,
+            })
+          )}
+        >
+          Save
+        </button>
       </div>
       <div className="reset-color">
         <button

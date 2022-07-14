@@ -11,6 +11,7 @@ import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerR
 import { colorDivCollectionReducer } from "../features/ColorDivCollectionReducerSlice.js.js";
 import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
 import { colorsReducer } from "../features/ItemCollectionColors/ColorsReducerSlice.js.js";
+import { itemsColorsReducer } from "../features/ItemCollectionColors/ItemsColorsReducerSlice.js";
 
 const store = createStore(
   combineReducers({
@@ -25,6 +26,7 @@ const store = createStore(
     colorDivCollection: colorDivCollectionReducer,
     itemColors: itemColorsReducer,
     colors: colorsReducer,
+    itemsColors: itemsColorsReducer,
   }),
   {
     brandKitApp: initialApp,

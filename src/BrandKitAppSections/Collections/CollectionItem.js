@@ -34,7 +34,7 @@ const CollectionItem = (props) => {
       </button>
       <div className="itemColors">
         {props.collectionData.color.map((color) => {
-          return <ItemColors colorData={color.color} key={ID + generateId()} />;
+          return <ItemColors colorData={color} key={ID + generateId()} />;
         })}
       </div>
       <div className="collection">
