@@ -20,7 +20,11 @@ const Form = (props) => {
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
   const COLORS = useSelector(selectedColors);
-
+  const CURRENT_COLOR = COLORS.filter(color => {
+    if(color === COLORS[COLORS.length - 1]){
+      return color;
+    }
+  })
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -32,7 +36,6 @@ const Form = (props) => {
 
   return (
     <div className="brand-kit-form">
-
       <AddLogo />
       <AddColors />
       <AddFonts />
@@ -46,9 +49,9 @@ const Form = (props) => {
               const ID = generateId();
               dispatch(
                 selectedItem({
-                  id: ID + 'itemColors',
-                  color: COLORS,
-                  title: 'Title',
+                  id: ID + "itemColors",
+                  color: CURRENT_COLOR,
+                  title: "Title",
                 })
               );
               dispatch(resetAfterSave([]));

@@ -7,11 +7,12 @@ const ItemColors = (props) => {
 
   return (
     <>
-      {props.colorData.map(color => {
-        return <div className="colors" style={{backgroundColor: color}} key={generateId()}></div>
-      })}
+      <div
+        className="colors"
+        style={{ backgroundColor: props.colorData }}
+        key={generateId()}
+      ></div>
     </>
-      
   );
 };
 

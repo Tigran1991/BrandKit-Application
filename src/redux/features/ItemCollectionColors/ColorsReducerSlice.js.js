@@ -8,6 +8,8 @@ export const colorsReducer = (state = [], action) => {
   return state;
 };
 
+
 export const selectedColors = (state) => {
   return state.colors;
 };
+

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { useDispatch } from "react-redux";
 import { deleteColorsDivItem } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 
