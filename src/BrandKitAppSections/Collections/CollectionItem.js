@@ -11,6 +11,8 @@ const CollectionItem = (props) => {
 
   const ID = props.collectionData.id;
 
+  console.log(props.collectionData.color);
+
   const [title, setTitle] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(props.collectionData.title);
 
@@ -33,9 +35,7 @@ const CollectionItem = (props) => {
         X
       </button>
       <div className="itemColors">
-        {props.collectionData.color.map((color) => {
-          return <ItemColors colorData={color} key={ID + generateId()} />;
-        })}
+        <ItemColors colorData={props.collectionData.color} key={ID + generateId()} />
       </div>
       <div className="collection">
         {title && (

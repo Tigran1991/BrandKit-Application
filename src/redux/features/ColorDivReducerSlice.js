@@ -3,6 +3,7 @@ export const colorDivReducer = (state = {}, action) => {
     return {
       ...state,
       id: action.payload.id,
+      color: action.payload.color,
     };
   }
 
@@ -14,6 +15,7 @@ export const selectedColorDiv = (newColorDiv) => {
     type: "ADD-COLOR-DIV",
     payload: {
       id: newColorDiv.id,
+      color: newColorDiv.color,
     },
   };
 };

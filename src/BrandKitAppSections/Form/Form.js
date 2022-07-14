@@ -10,7 +10,8 @@ import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerS
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectedColorDivCollection } from "../../redux/features/ColorDivCollectionReducerSlice.js";
 import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSlice.js";
-import { selectedColor } from "../../redux/features/ItemColorReducerSlice";
+import { selectedItem } from "../../redux/features/ItemColorReducerSlice";
+import { selectedColors } from "../../redux/features/ItemCollectionColors/ColorsReducerSlice.js";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -18,9 +19,8 @@ const Form = (props) => {
   const BUTTON_STATE = useSelector(selectSaveButtonState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
-  const COLORS = COLORS_COLLECTION.map((collection) => collection.color);
-  
-  console.log(COLORS);
+  const COLORS = useSelector(selectedColors);
+
 
   useEffect(() => {
     if (props.formData.length > 3) {
@@ -45,7 +45,7 @@ const Form = (props) => {
             onClick={() => {
               const ID = generateId();
               dispatch(
-                selectedColor({
+                selectedItem({
                   id: ID + 'itemColors',
                   color: COLORS,
                   title: 'Title',

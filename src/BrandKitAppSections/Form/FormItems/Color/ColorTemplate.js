@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { ChromePicker } from "react-color";
 
@@ -13,8 +13,10 @@ import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlic
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
 import { resetColors } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
+import { selectedItemColors } from "../../../../redux/features/ItemCollectionColors/colorReducerSlice";
 
 const ColorTemplate = memo(() => {
+  const [color, setColor] = useState();
   const colorPickerRef = useRef();
   const currentColor = useRef();
   const INITIAL_COLOR = "green";
@@ -32,6 +34,11 @@ const ColorTemplate = memo(() => {
         id: ID,
       })
     );
+    if(color){
+      dispatch(selectedItemColors({
+        color: color,
+      }))
+    }
   };
 
   const colorHandler = (color) => {
@@ -64,7 +71,11 @@ const ColorTemplate = memo(() => {
       </div>
       {COLOR_PICKER && (
         <div className="colorPicker">
-          <ChromePicker color={INITIAL_COLOR} onChange={colorHandler} ref={currentColor} />
+          <ChromePicker
+            color={INITIAL_COLOR}
+            onChange={colorHandler}
+            ref={currentColor}
+          />
         </div>
       )}
       <div className="selected-colors">

@@ -1,7 +1,7 @@
 import { itemColorReducer } from "./ItemColorReducerSlice";
 
 export const itemColorsReducer = (state = [], action) => {
-  if (action.type === "ADD-COLOR") {
+  if (action.type === "ADD-ITEM") {
     return [...state, itemColorReducer(undefined, action)];
   }
   if (action.type === "DELETE_COLLECTIONS_ITEM") {
