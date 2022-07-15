@@ -13,6 +13,7 @@ import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSl
 import { selectedItem } from "../../redux/features/ItemColorReducerSlice";
 import { selectItemsColors } from "../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
 import { resetColorsAfterSave } from "../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
+import ColorPickerApplication from "../../ColorPicker/App";
 
 const Form = (props) => {
   const dispatch = useDispatch();

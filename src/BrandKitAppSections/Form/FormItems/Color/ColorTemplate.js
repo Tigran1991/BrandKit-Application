@@ -19,7 +19,7 @@ import { selectedItemsColors } from "../../../../redux/features/ItemCollectionCo
 
 const ColorTemplate = memo(() => {
   const colorPickerRef = useRef();
-  const currentColor = useRef();
+  const currentColor = useRef("#fff");
   const INITIAL_COLOR = "green";
 
   const dispatch = useDispatch();
@@ -28,13 +28,8 @@ const ColorTemplate = memo(() => {
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
   const COLORS = useSelector(selectedColors);
-  const CURRENT_COLOR = COLORS.filter((color) => {
-    if (color === COLORS[COLORS.length - 1]) {
-      return color;
-    }
-  });
 
-  console.log(CURRENT_COLOR.length);
+  const CURRENT_COLOR = COLORS.filter((color) => color === COLORS[COLORS.length - 1]);
 
   const colorPickerHandler = () => {
     dispatch(colorPickerSelectedState(true));
@@ -44,13 +39,15 @@ const ColorTemplate = memo(() => {
         id: ID,
       })
     );
-    if(CURRENT_COLOR.length > 0){
+
+    if (CURRENT_COLOR.length > 0) {
       dispatch(
         selectedItemsColors({
           color: CURRENT_COLOR,
         })
       );
     }
+
   };
 
   const colorHandler = (color) => {
@@ -61,7 +58,6 @@ const ColorTemplate = memo(() => {
         color: color.hex,
       })
     );
-    
   };
 
   useEffect(() => {
@@ -103,19 +99,6 @@ const ColorTemplate = memo(() => {
             />
           );
         })}
-      </div>
-      <div className="save-color">
-        <button
-          type="save"
-          className="save-btn"
-          onClick={() => dispatch(
-            selectedItemsColors({
-              color: CURRENT_COLOR,
-            })
-          )}
-        >
-          Save
-        </button>
       </div>
       <div className="reset-color">
         <button

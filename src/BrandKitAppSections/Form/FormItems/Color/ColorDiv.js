@@ -9,7 +9,7 @@ const ColorDiv = memo((props) => {
   const ID = props.colorItemData.id;
 
   return (
-    <div className="added-colors" ref={props.colorData}>
+    <div className="added-colors" ref={props.colorData} style={{backgroundColor: 'green'}}>
       <button
         className="delete-item"
         onClick={() => {
