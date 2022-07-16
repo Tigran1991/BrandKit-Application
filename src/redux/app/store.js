@@ -1,13 +1,12 @@
 import { combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { brandKitAppReducer, initialApp } from "../features/BrandKitAppReducerSlice.js";
+import { brandKitAppReducer, appInitialState } from "../features/BrandKitAppReducerSlice.js";
 import { usersCollectionsReducer } from "../features/UserCollectionsReducerSlice.js";
-import { saveButtonReducer, initialSaveButtonState } from "../features/SaveButtonReducerSlice.js";
+import { saveFormButtonReducer, saveFormButtonInitialState } from "../features/SaveFormButtonReducerSlice.js";
 import { showLogoTemplateReducer, initialLogoTemplateState } from "../features/form-items-templates/LogoTemplateReducerSlice.js";
 import { showColorTemplateReducer, initialColorTemplateState } from "../features/form-items-templates/ColorTemplateReducerSlice.js";
 import { showFontsTemplateReducer, initialFontsTemplateState } from "../features/form-items-templates/FontsTemplateReducerSlice.js";
 import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
-import { colorPickerReducer, initialColorPicker } from "../features/ColorPickerReducerSlice.js";
 import { colorDivCollectionReducer } from "../features/ColorDivCollectionReducerSlice.js.js";
 import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
 import { colorsReducer } from "../features/ItemCollectionColors/ColorsReducerSlice.js.js";
@@ -16,25 +15,23 @@ import { itemsColorsReducer } from "../features/ItemCollectionColors/ItemsColors
 const store = createStore(
   combineReducers({
     brandKitApp: brandKitAppReducer,
-    saveButton: saveButtonReducer,
+    saveFormButtonState: saveFormButtonReducer,
     collections: usersCollectionsReducer,
     logoTemplate: showLogoTemplateReducer,
     colorTemplate: showColorTemplateReducer,
     fontsTemplate: showFontsTemplateReducer,
     logos: logosReducer,
-    colorPicker: colorPickerReducer,
     colorDivCollection: colorDivCollectionReducer,
     itemColors: itemColorsReducer,
     colors: colorsReducer,
     itemsColors: itemsColorsReducer,
   }),
   {
-    brandKitApp: initialApp,
-    saveButton: initialSaveButtonState,
+    brandKitApp: appInitialState,
+    saveButton: saveFormButtonInitialState,
     logoTemplate: initialLogoTemplateState,
     colorTemplate: initialColorTemplateState,
     fontsTemplate: initialFontsTemplateState,
-    colorPicker: initialColorPicker,
   },
   composeWithDevTools()
 );

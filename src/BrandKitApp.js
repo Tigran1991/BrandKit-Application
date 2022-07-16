@@ -6,7 +6,7 @@ import "./App.css";
 import FormArea from "./BrandKitAppSections/Form/FormArea";
 import CollectionArea from "./BrandKitAppSections/Collections/CollectionArea";
 import { appSelectedState } from "./redux/features/BrandKitAppReducerSlice";
-import { selectBrandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
+import { brandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
 import { resetColors } from "./redux/features/ColorDivCollectionReducerSlice.js";
 
@@ -18,7 +18,7 @@ const BrandKitApp = () => {
     dispatch(resetColors([]));
   }
 
-  const isBrandKitAppRun = useSelector(selectBrandKitAppState);
+  const isBrandKitAppRun = useSelector(brandKitAppState);
   const brandKitCollections = useSelector(selectedCollections);
 
   return (

@@ -138,11 +138,12 @@ export const ColorList = styled.div`
   margin-top: 4px;
   display: flex;
   justify-content: center;
+  padding: 3px;
 `;
 
 export const ColorListItem = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 9px;
   border: 1px solid #777;
   border-radius: 3px;
   display: inline-block;

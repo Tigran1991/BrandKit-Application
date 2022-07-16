@@ -7,8 +7,8 @@ import AddLogo from "./FormItems/Logo/BrandLogo";
 import AddFonts from "./FormItems/Fonts/BrandFonts";
 import AddColors from "./FormItems/Color/BrandColors";
 import { generateId } from "../../utils";
-import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
-import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
+import { saveFormButtonSelectedState } from "../../redux/features/SaveFormButtonReducerSlice";
+import { saveFormButtonCurrentState } from "../../redux/features/SaveFormButtonReducerSlice";
 import { selectedColorDivCollection } from "../../redux/features/ColorDivCollectionReducerSlice.js.js";
 import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSlice.js.js";
 import { selectedItem } from "../../redux/features/ItemColorReducerSlice";
@@ -18,16 +18,16 @@ import { resetColorsAfterSave } from "../../redux/features/ItemCollectionColors/
 const FormArea = (props) => {
   const dispatch = useDispatch();
 
-  const BUTTON_STATE = useSelector(selectSaveButtonState);
+  const BUTTON_STATE = useSelector(saveFormButtonCurrentState);
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
 
   const CURRENT_COLORS = useSelector(selectItemsColors);
 
   useEffect(() => {
     if (props.formData.length > 3) {
-      dispatch(selectedSaveButtonState(true));
+      dispatch(saveFormButtonSelectedState(true));
     } else {
-      dispatch(selectedSaveButtonState(false));
+      dispatch(saveFormButtonSelectedState(false));
     }
   });
 

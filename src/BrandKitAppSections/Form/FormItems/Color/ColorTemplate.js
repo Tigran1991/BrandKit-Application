@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import * as Styled from "./styled";
 import ColorDiv from "./SelectedColor";
 import { useSelector } from "react-redux";
-import { colorPickerSelectedState } from "../../../../redux/features/ColorPickerReducerSlice";
 import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlice";
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";

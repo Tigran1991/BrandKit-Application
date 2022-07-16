@@ -48,8 +48,8 @@ export const AddFontsBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 43px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   background-color: rgb(81, 81, 228);
   border: 0px;

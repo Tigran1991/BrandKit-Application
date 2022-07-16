@@ -1,27 +1,29 @@
 export const brandKitAppReducer = (state = {}, action) => {
-  if (action.type === "ADD-APP") {
-    return {
-      ...state,
-      app: action.payload.app,
-    };
+  switch ("OPEN-APP") {
+    case action.type:
+      return {
+        ...state,
+        isOpen: action.payload.status,
+      };
+
+    default:
+      return state;
   }
-
-  return state;
 };
 
-export const initialApp = {
-  app: false,
+export const appInitialState = {
+  isOpen: false,
 };
 
-export const selectBrandKitAppState = (state) => {
-  return state.brandKitApp.app;
+export const brandKitAppState = (state) => {
+  return state.brandKitApp.isOpen;
 };
 
-export const appSelectedState = (status) => {
+export const appSelectedState = (selectedStatus) => {
   return {
-    type: "ADD-APP",
+    type: "OPEN-APP",
     payload: {
-      app: status,
+      status: selectedStatus,
     },
   };
 };
