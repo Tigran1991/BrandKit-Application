@@ -6,7 +6,7 @@ import EmptyCollectionStorage from "./EmptyCollectionStorage";
 import UsersCollectionStorage from "./UsersCollectionStorage";
 import { selectedColorsForItem } from "../../redux/features/ItemColorsReducerSlice";
 
-const CollectionStorage = () => {
+const CollectionArea = () => {
 
     const COLORS_COLLECTION = useSelector(selectedColorsForItem);
 
@@ -20,4 +20,4 @@ const CollectionStorage = () => {
 
 }
 
-export default CollectionStorage;
+export default CollectionArea;

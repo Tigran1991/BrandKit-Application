@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import * as Styled from "./styled";
 
 import "../../App.css";
-import AddLogo from "./FormItems/Logo/AddLogo";
+import AddLogo from "./FormItems/Logo/BrandLogo";
 import AddFonts from "./FormItems/Fonts/AddFonts";
-import AddColors from "./FormItems/Color/AddColors";
+import AddColors from "./FormItems/Color/BrandColors";
 import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
 import { selectSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";
-import { selectedColorDivCollection } from "../../redux/features/ColorDivCollectionReducerSlice.js";
-import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSlice.js";
+import { selectedColorDivCollection } from "../../redux/features/ColorDivCollectionReducerSlice.js.js";
+import { resetAfterSave } from "../../redux/features/ColorDivCollectionReducerSlice.js.js";
 import { selectedItem } from "../../redux/features/ItemColorReducerSlice";
 import { selectItemsColors } from "../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
 import { resetColorsAfterSave } from "../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
 
-const Form = (props) => {
+const FormArea = (props) => {
   const dispatch = useDispatch();
 
   const BUTTON_STATE = useSelector(selectSaveButtonState);
@@ -31,35 +32,32 @@ const Form = (props) => {
   });
 
   return (
-    <div className="brand-kit-form">
+    <Styled.BrandKitForm>
       <AddLogo />
       <AddColors />
       <AddFonts />
 
-      <div className="save-brand-kit">
-        {COLORS_COLLECTION.length !== 0 && (
-          <button
-            className="save-brand-kit-btn"
-            disabled={BUTTON_STATE}
-            onClick={() => {
-              const ID = generateId();
-              dispatch(
-                selectedItem({
-                  id: ID + "itemColors",
-                  color: CURRENT_COLORS,
-                  title: "Title",
-                })
-              );
-              dispatch(resetAfterSave([]));
-              dispatch(resetColorsAfterSave([]));
-            }}
-          >
-            Save
-          </button>
-        )}
-      </div>
-    </div>
+      {COLORS_COLLECTION.length !== 0 && (
+        <Styled.SaveCollection
+          disabled={BUTTON_STATE}
+          onClick={() => {
+            const ID = generateId();
+            dispatch(
+              selectedItem({
+                id: ID + "itemColors",
+                color: CURRENT_COLORS,
+                title: "Title",
+              })
+            );
+            dispatch(resetAfterSave([]));
+            dispatch(resetColorsAfterSave([]));
+          }}
+        >
+          Save
+        </Styled.SaveCollection>
+      )}
+    </Styled.BrandKitForm>
   );
 };
 
-export default Form;
+export default FormArea;

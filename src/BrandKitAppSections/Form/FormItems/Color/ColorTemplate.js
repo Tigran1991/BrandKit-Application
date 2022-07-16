@@ -1,14 +1,9 @@
-import React, { memo, useEffect, useRef } from "react";
+import React, { memo, useRef } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { ChromePicker } from "react-color";
-
-import "./Color.css";
-import ColorDiv from "./ColorDiv";
+import * as Styled from "./styled";
+import ColorDiv from "./SelectedColor";
 import { useSelector } from "react-redux";
-import {
-  selectColorPickerState,
-  colorPickerSelectedState,
-} from "../../../../redux/features/ColorPickerReducerSlice";
+import { colorPickerSelectedState } from "../../../../redux/features/ColorPickerReducerSlice";
 import { selectedColorDiv } from "../../../../redux/features/ColorDivReducerSlice";
 import { generateId } from "../../../../utils";
 import { selectedColorDivCollection } from "../../../../redux/features/ColorDivCollectionReducerSlice.js";
@@ -16,80 +11,52 @@ import { resetColors } from "../../../../redux/features/ColorDivCollectionReduce
 import { selectedItemColors } from "../../../../redux/features/ItemCollectionColors/ColorReducerSlice";
 import { selectedColors } from "../../../../redux/features/ItemCollectionColors/ColorsReducerSlice.js";
 import { selectedItemsColors } from "../../../../redux/features/ItemCollectionColors/ItemsColorsReducerSlice";
+import { ColorInput } from "../../../../ColorPicker/ColorInput";
 
 const ColorTemplate = memo(() => {
   const colorPickerRef = useRef();
   const currentColor = useRef("#fff");
-  const INITIAL_COLOR = "green";
-
+  const testRef = useRef();
   const dispatch = useDispatch();
 
-  const COLOR_PICKER = useSelector(selectColorPickerState);
+  const initialColor = "#123456";
+  const colors = ["red", "#6262f5", "green", "cyan", "#123456"];
+
   const COLORS_COLLECTION = useSelector(selectedColorDivCollection);
-
   const COLORS = useSelector(selectedColors);
+  const CURRENT_COLOR = COLORS.filter(
+    (color) => color === COLORS[COLORS.length - 1]
+  );
 
-  const CURRENT_COLOR = COLORS.filter((color) => color === COLORS[COLORS.length - 1]);
+  const change = (color) => {
+    currentColor.current.style.backgroundColor = color;
 
-  const colorPickerHandler = () => {
-    dispatch(colorPickerSelectedState(true));
     const ID = generateId();
     dispatch(
       selectedColorDiv({
         id: ID,
       })
     );
-
-    if (CURRENT_COLOR.length > 0) {
-      dispatch(
-        selectedItemsColors({
-          color: CURRENT_COLOR,
-        })
-      );
-    }
-
   };
 
-  const colorHandler = (color) => {
-    currentColor.current.style.backgroundColor = color.hex;
-
-    dispatch(
-      selectedItemColors({
-        color: color.hex,
-      })
-    );
+  const changeEnd = (color) => {
+    testRef.current.style.backgroundColor = color;
   };
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (!colorPickerRef.current.contains(event.target)) {
-        dispatch(colorPickerSelectedState(false));
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-  });
+  const resetColorsHandler = () => dispatch(resetColors([]));
 
   return (
-    <div ref={colorPickerRef} className="color-template">
-      <div className="add-colors">
-        <div className="add-brand-colors">
-          <button
-            className="add-colors-btn"
-            onClick={colorPickerHandler}
-          ></button>
-        </div>
-      </div>
-      {COLOR_PICKER && (
-        <div className="colorPicker">
-          <ChromePicker
-            color={INITIAL_COLOR}
-            onChange={colorHandler}
-            ref={currentColor}
-          />
-        </div>
-      )}
-      <div className="selected-colors">
+    <Styled.ColorTemplate ref={colorPickerRef}>
+      <Styled.AddBrandColors>
+        <ColorInput
+          color={initialColor}
+          colorList={colors}
+          onChange={change}
+          onChangeEnd={changeEnd}
+        />
+      </Styled.AddBrandColors>
+
+      <Styled.SelectedColors>
         {COLORS_COLLECTION.map((color) => {
           return (
             <ColorDiv
@@ -99,17 +66,12 @@ const ColorTemplate = memo(() => {
             />
           );
         })}
-      </div>
-      <div className="reset-color">
-        <button
-          type="reset"
-          className="reset-btn"
-          onClick={() => dispatch(resetColors([]))}
-        >
-          Reset
-        </button>
-      </div>
-    </div>
+      </Styled.SelectedColors>
+
+      <Styled.ResetColorsBtn type="reset" onClick={resetColorsHandler}>
+        Reset
+      </Styled.ResetColorsBtn>
+    </Styled.ColorTemplate>
   );
 });
 

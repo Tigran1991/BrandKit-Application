@@ -21,7 +21,6 @@ export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
   }, [])
 
   const change = (color) => {
-    ref.current.style.backgroundColor = color
     onChange(color)
   }
 
@@ -31,7 +30,7 @@ export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
   }
 
   return (
-    <Styled.ColorIcon ref={ref} color={color}>
+    <Styled.ColorIcon ref={ref} >
       {isColorPickerOpen && (
         <ColorPicker
           initialColor={color}

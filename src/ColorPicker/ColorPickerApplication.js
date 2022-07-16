@@ -1,8 +1,8 @@
 import { useRef } from "react"
-import "./App.css"
+import "./ColorPickerApplication.css"
 import { ColorInput } from "./ColorInput"
 
-function App() {
+function ColorPickerApplication() {
   const testRef = useRef()
   const change = (color) => {
     testRef.current.style.backgroundColor = color
@@ -37,4 +37,4 @@ function App() {
   )
 }
 
-export default App
+export default ColorPickerApplication;

@@ -1,9 +1,10 @@
 import React from "react";
+import * as Styled from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
-import Form from "./BrandKitAppSections/Form/Form";
-import CollectionStorage from "./BrandKitAppSections/Collections/CollectionStorage";
+import FormArea from "./BrandKitAppSections/Form/FormArea";
+import CollectionArea from "./BrandKitAppSections/Collections/CollectionArea";
 import { appSelectedState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectBrandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
 import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
@@ -12,32 +13,33 @@ import { resetColors } from "./redux/features/ColorDivCollectionReducerSlice.js"
 const BrandKitApp = () => {
   const dispatch = useDispatch();
 
-  const BRAND_KIT_APP = useSelector(selectBrandKitAppState);
-  const BRAND_KIT_COLLECTIONS = useSelector(selectedCollections);
+  const brandKitAppHandler = () => {
+    dispatch(appSelectedState(!isBrandKitAppRun));
+    dispatch(resetColors([]));
+  }
+
+  const isBrandKitAppRun = useSelector(selectBrandKitAppState);
+  const brandKitCollections = useSelector(selectedCollections);
 
   return (
-    <div className="brand-kit-board">
-      <button
-        className="add-brand-kit-btn"
-        onClick={() => {
-          dispatch(appSelectedState(!BRAND_KIT_APP));
-          dispatch(resetColors([]));
-        }}
+    <Styled.BrandKitBoard>
+      <Styled.AddBrandKitBtn
+        onClick={brandKitAppHandler}
       >
-        {!BRAND_KIT_APP && <p>Add BrandKit</p>}
+        {!isBrandKitAppRun && <p>Open BrandKit</p>}
 
-        {BRAND_KIT_APP && <p>Close BrandKit</p>}
-      </button>
-      
-        {/* <userBrandList /> */}
+        {isBrandKitAppRun && <p>Close BrandKit</p>}
+      </Styled.AddBrandKitBtn>
 
-      {BRAND_KIT_APP && (
+      {/* <userBrandList /> */}
+
+      {isBrandKitAppRun && (
         <>
-          <Form formData={BRAND_KIT_COLLECTIONS} />
-          <CollectionStorage collectionData={BRAND_KIT_COLLECTIONS} />
+          <FormArea formData={brandKitCollections} />
+          <CollectionArea collectionData={brandKitCollections} />
         </>
       )}
-    </div>
+    </Styled.BrandKitBoard>
   );
 };
 
