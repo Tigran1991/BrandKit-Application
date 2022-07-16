@@ -1,23 +1,17 @@
 import React, { memo } from "react";
-
-import "./Fonts.css";
+import * as Styled from './styled';
 
 const FontsTemplate = memo(() => {
 
   return (
-    <div className="fonts-template">
-      <div className="add-font-btn">
-          <input type="file" style={{ display: "none" }} id="download-logo" />
-      </div>
-      <div className="selected-font">
-        <div className="added-font"></div>
-      </div>
-      <div className="reset-fonts">
-        <button type="reset" className="reset-btn">
+    <Styled.FontsTemplate>
+      <Styled.AddFontsBtn>
+          <Styled.UploadFonts type="file" style={{ display: "none" }} />
+      </Styled.AddFontsBtn>
+        <Styled.ResetFontsBtn type="reset">
           Reset
-        </button>
-      </div>
-    </div>
+        </Styled.ResetFontsBtn>
+    </Styled.FontsTemplate>
   );
 });
 

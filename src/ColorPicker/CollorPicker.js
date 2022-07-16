@@ -111,6 +111,10 @@ export const ColorPicker = ({
     onChangeEnd(RGBAToHex(RGBA));
   };
 
+  const cancelColorSelectionHandler = () => {};
+
+  const saveColorSelectionHandler = () => {};
+
   return (
     <Styled.ColorPicker id="ColorPicker">
       <ColorArea
@@ -136,8 +140,12 @@ export const ColorPicker = ({
         />
         <ColorList colorList={colorList} onChange={changeColor} />
         <Styled.SelectAction>
-          <Styled.CancelBtn>Cancel</Styled.CancelBtn>
-          <Styled.SaveBtn>Save</Styled.SaveBtn>
+          <Styled.CancelBtn onClick={cancelColorSelectionHandler}>
+            Cancel
+          </Styled.CancelBtn>
+          <Styled.SaveBtn onClick={saveColorSelectionHandler}>
+            Save
+          </Styled.SaveBtn>
         </Styled.SelectAction>
       </Styled.Container>
     </Styled.ColorPicker>

@@ -4,7 +4,7 @@ import * as Styled from "./styled";
 
 import "../../App.css";
 import AddLogo from "./FormItems/Logo/BrandLogo";
-import AddFonts from "./FormItems/Fonts/AddFonts";
+import AddFonts from "./FormItems/Fonts/BrandFonts";
 import AddColors from "./FormItems/Color/BrandColors";
 import { generateId } from "../../utils";
 import { selectedSaveButtonState } from "../../redux/features/SaveButtonReducerSlice";

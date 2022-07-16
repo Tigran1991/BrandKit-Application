@@ -117,3 +117,4 @@ export const DeleteItem = styled.div`
   border: none;
   color: #fff;
 `;
+

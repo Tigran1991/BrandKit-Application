@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import addLogo from '../../../../images/add.png';
+import addFonts from "../../../../images/pen.png";
 
-export const LogoSection = styled.div`
+export const FontsSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,17 +9,16 @@ export const LogoSection = styled.div`
   background-color: #333;
   border-radius: 3px;
   margin-bottom: 10px;
-  font-family: "Permanent Marker", cursive;
-  font-family: "Work Sans", sans-serif;
 `;
 
-export const BrandLogoLabel = styled.div`
+export const BrandsFontLabel = styled.div`
   display: flex;
   width: 100%;
   align-items: flex-start;
+  justify-content: center;
 `;
 
-export const LogoBtn = styled.div`
+export const SelectFontsBtn = styled.div`
   border: none;
   cursor: pointer;
   background-color: #333;
@@ -29,7 +28,7 @@ export const LogoBtn = styled.div`
   font-family: "Josefin Sans", sans-serif;
 `;
 
-export const LogoTemplate = styled.div`
+export const FontsTemplate = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,33 +44,7 @@ export const LogoTemplate = styled.div`
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 `;
 
-export const AddBrandLogo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15%;
-  height: 160px;
-  cursor: pointer;
-  border: 0px;
-  border-radius: 3px;
-  margin-left: 9px;
-  margin: 10px 0px 10px 0px;
-  border: 1px solid #38cbe9;
-  background-color: rgb(255, 255, 255);
-  border-radius: 3px;
-  transition: 0.3ms linear;
-  :hover {
-    border: 3px solid #0b8097;
-  }
-`;
-
-export const UploadLogo = styled.div`
-  display: flex;
-  width: 15%;
-  height: 100%;
-`;
-
-export const UploadLogoBtn = styled.div`
+export const AddFontsBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,12 +57,16 @@ export const UploadLogoBtn = styled.div`
   font-family: "Anek Latin", sans-serif;
   font-size: 16px;
   color: #fff;
-  background: url(${addLogo});
+  background: url(${addFonts});
   background-size: contain;
   background-repeat: no-repeat;
 `;
 
-export const ResetLogoBtn = styled.div`
+export const UploadFonts = styled.div`
+  display: flex;
+`;
+
+export const ResetFontsBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
