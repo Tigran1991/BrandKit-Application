@@ -1,39 +1,29 @@
-import { combineReducers, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { brandKitAppReducer, appInitialState } from "../features/BrandKitAppReducerSlice.js";
-import { usersCollectionsReducer } from "../features/UserCollectionsReducerSlice.js";
-import { saveFormButtonReducer, saveFormButtonInitialState } from "../features/SaveFormButtonReducerSlice.js";
-import { showLogoTemplateReducer, initialLogoTemplateState } from "../features/form-items-templates/LogoTemplateReducerSlice.js";
-import { showColorTemplateReducer, initialColorTemplateState } from "../features/form-items-templates/ColorTemplateReducerSlice.js";
-import { showFontsTemplateReducer, initialFontsTemplateState } from "../features/form-items-templates/FontsTemplateReducerSlice.js";
-import { logosReducer } from "../features/logo-items/logosReducerSlice.js";
-import { colorDivCollectionReducer } from "../features/ColorDivCollectionReducerSlice.js.js";
-import { itemColorsReducer } from "../features/ItemColorsReducerSlice.js";
-import { colorsReducer } from "../features/ItemCollectionColors/ColorsReducerSlice.js.js";
-import { itemsColorsReducer } from "../features/ItemCollectionColors/ItemsColorsReducerSlice.js";
+import { configureStore } from '@reduxjs/toolkit';
+import appReducer from '../features/app';
+import logosTemplateReducer from '../features/logoTemplate';
+import coloursTemplateReducer from '../features/coloursTemplate';
+import fontsTemplateReducer from '../features/fontsTemplate';
+import coloursTemplateItemReducer from '../features/coloursTemplateItems';
+import colorPickerReducer from '../features/colorPicker';
+import coloursReducer from '../features/colours';
+import selectedColorReducer from '../features/selectedColor';
+import collectionReducer from '../features/collection';
+import collectionStatusReducer from '../features/collectionStatus';
 
-const store = createStore(
-  combineReducers({
-    brandKitApp: brandKitAppReducer,
-    saveFormButtonState: saveFormButtonReducer,
-    collections: usersCollectionsReducer,
-    logoTemplate: showLogoTemplateReducer,
-    colorTemplate: showColorTemplateReducer,
-    fontsTemplate: showFontsTemplateReducer,
-    logos: logosReducer,
-    colorDivCollection: colorDivCollectionReducer,
-    itemColors: itemColorsReducer,
-    colors: colorsReducer,
-    itemsColors: itemsColorsReducer,
-  }),
-  {
-    brandKitApp: appInitialState,
-    saveButton: saveFormButtonInitialState,
-    logoTemplate: initialLogoTemplateState,
-    colorTemplate: initialColorTemplateState,
-    fontsTemplate: initialFontsTemplateState,
+const store = configureStore({
+  reducer: {
+    app: appReducer,
+    logosTemplate: logosTemplateReducer,
+    coloursTemplate: coloursTemplateReducer,
+    fontsTemplate: fontsTemplateReducer,
+    coloursItems: coloursTemplateItemReducer,
+    colorPicker: colorPickerReducer,
+    colours: coloursReducer,
+    selectedColor: selectedColorReducer,
+    collection: collectionReducer,
+    isCollectionFull: collectionStatusReducer,
   },
-  composeWithDevTools()
-);
+})
 
 export default store;
+

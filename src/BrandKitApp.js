@@ -1,42 +1,31 @@
 import React from "react";
 import * as Styled from "./styled";
 import { useDispatch, useSelector } from "react-redux";
-
-import "./App.css";
-import FormArea from "./BrandKitAppSections/Form/FormArea";
-import CollectionArea from "./BrandKitAppSections/Collections/CollectionArea";
-import { appSelectedState } from "./redux/features/BrandKitAppReducerSlice";
-import { brandKitAppState } from "./redux/features/BrandKitAppReducerSlice";
-import { selectedCollections } from "./redux/features/UserCollectionsReducerSlice";
-import { resetColors } from "./redux/features/ColorDivCollectionReducerSlice.js";
+import { appCurrentState } from "./redux/features/app";
+import FormsArea from "./BrandKitAppSections/Forms/FormsArea";
+import CollectionsArea from "./BrandKitAppSections/Collections/CollectionsArea";
 
 const BrandKitApp = () => {
   const dispatch = useDispatch();
 
-  const brandKitAppHandler = () => {
-    dispatch(appSelectedState(!isBrandKitAppRun));
-    dispatch(resetColors([]));
-  }
+  const brandKit = useSelector((state) => state.app);
 
-  const isBrandKitAppRun = useSelector(brandKitAppState);
-  const brandKitCollections = useSelector(selectedCollections);
+  const brandKitAppHandler = () => dispatch(appCurrentState());
 
   return (
     <Styled.BrandKitBoard>
-      <Styled.AddBrandKitBtn
-        onClick={brandKitAppHandler}
-      >
-        {!isBrandKitAppRun && <p>Open BrandKit</p>}
+      <Styled.AddBrandKitBtn onClick={brandKitAppHandler}>
+        {!brandKit.isOpen && <p>Open BrandKit</p>}
 
-        {isBrandKitAppRun && <p>Close BrandKit</p>}
+        {brandKit.isOpen && <p>Close BrandKit</p>}
       </Styled.AddBrandKitBtn>
 
       {/* <userBrandList /> */}
 
-      {isBrandKitAppRun && (
+      {brandKit.isOpen && (
         <>
-          <FormArea formData={brandKitCollections} />
-          <CollectionArea collectionData={brandKitCollections} />
+          <FormsArea />
+          <CollectionsArea />
         </>
       )}
     </Styled.BrandKitBoard>
