@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const fontsTemplateSlice = createSlice({
+export const fontsTemplateStateSlice = createSlice({
   name: "fontsTemplate",
   initialState: {
     isOpen: false,
@@ -12,6 +12,6 @@ export const fontsTemplateSlice = createSlice({
   },
 });
 
-export const { fontsTemplateCurrentState } = fontsTemplateSlice.actions;
+export const { fontsTemplateCurrentState } = fontsTemplateStateSlice.actions;
 
-export default fontsTemplateSlice.reducer;
+export default fontsTemplateStateSlice.reducer;

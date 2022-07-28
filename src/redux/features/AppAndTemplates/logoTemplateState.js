@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const logosTemplateSlice = createSlice({
+export const logosTemplateStateSlice = createSlice({
   name: "logoTemplate",
   initialState: {
     isOpen: false,
@@ -12,6 +12,6 @@ export const logosTemplateSlice = createSlice({
   },
 });
 
-export const { logosTemplateCurrentState } = logosTemplateSlice.actions;
+export const { logosTemplateCurrentState } = logosTemplateStateSlice.actions;
 
-export default logosTemplateSlice.reducer;
+export default logosTemplateStateSlice.reducer;

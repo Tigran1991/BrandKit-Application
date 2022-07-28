@@ -2,7 +2,7 @@ import React from "react";
 import FontsTemplate from "./FontsTemplate";
 import * as Styled from "./styled";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { fontsTemplateCurrentState } from "../../../../redux/features/fontsTemplate";
+import { fontsTemplateCurrentState } from "../../../../redux/features/AppAndTemplates/fontsTemplateState";
 
 const BrandFonts = () => {
   const dispatch = useDispatch();

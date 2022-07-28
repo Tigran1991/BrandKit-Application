@@ -2,7 +2,7 @@ import React from "react";
 import * as Styled from "./styled";
 import LogoTemplate from "./LogosTemplate";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { logosTemplateCurrentState } from "../../../../redux/features/logoTemplate";
+import { logosTemplateCurrentState } from "../../../../redux/features/AppAndTemplates/logoTemplateState";
 
 const BrandLogos = () => {
   const dispatch = useDispatch();

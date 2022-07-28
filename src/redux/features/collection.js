@@ -4,17 +4,18 @@ import { generateId } from "../../utils";
 export const collectionSlice = createSlice({
   name: "collection",
   initialState: {
-    collectionItems: {
-      item: [],
-      colours: [],
-    },
+    collection: [],
   },
+
   reducers: {
     addCollectionItem: (state, action) => {
-      state.collectionItems = {
-        item: [...state.collectionItems.item, generateId()],
-        colours: [...state.collectionItems.colours, action.payload],
-      };
+      state.collection = [
+        ...state.collection,
+        {
+          id: generateId(),
+          colours: action.payload,
+        },
+      ];
     },
   },
 });

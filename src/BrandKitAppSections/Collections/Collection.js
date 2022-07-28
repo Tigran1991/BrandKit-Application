@@ -1,7 +1,8 @@
 import React from "react";
 import * as Styled from "./styled";
 import { useState } from "react";
-import CollectionItemColors from "./CollectionItemColors";
+import CollectionItemColours from "./CollectionItemColours";
+import { generateId } from "../../utils";
 
 const Collection = (props) => {
   const [title, setTitle] = useState(false);
@@ -18,8 +19,8 @@ const Collection = (props) => {
   return (
     <Styled.CollectionItem>
       <>
-        {props.collectionColours.colours.map((itemColor) => {
-          return <CollectionItemColors color={itemColor} />;
+        {props.collectionColours.map((color) => {
+          return <CollectionItemColours color={color} key={generateId()} />;
         })}
       </>
       <Styled.CollectionTitle>

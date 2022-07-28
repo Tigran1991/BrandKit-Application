@@ -7,14 +7,14 @@ export const coloursSlice = createSlice({
   },
   reducers: {
     addColours: (state, action) => {
-      state.colours = state.colours.concat(action.payload);
+      state.colours = [...state.colours, action.payload];
     },
     saveColours: (state) => {
-      state.colours = state.colours.filter(color => color);
+      state.colours = state.colours.filter((color) => color);
     },
     discardColours: (state) => {
       state.colours = [];
-    }
+    },
   },
 });
 

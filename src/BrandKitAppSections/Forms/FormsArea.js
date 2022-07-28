@@ -5,22 +5,28 @@ import BrandColours from "./FormItems/Colours/BrandColours";
 import BrandFonts from "./FormItems/Fonts/BrandFonts";
 import { useDispatch, useSelector } from "react-redux";
 import { addCollectionItem } from "../../redux/features/collection";
-import { saveColorItems } from "../../redux/features/coloursTemplateItems";
-import { saveColours } from "../../redux/features/colours";
-import { collectionCurrentStatus } from "../../redux/features/collectionStatus";
+import { saveColorItems } from "../../redux/features/coloursReducers/coloursTemplateItems";
+import { saveColours } from "../../redux/features/coloursReducers/colours";
+import { collectionAreaCurrentState } from "../../redux/features/AppAndTemplates/collectionAreaState";
+import { discardSelectedColor } from "../../redux/features/coloursReducers/selectedColor";
 
 const FormsArea = () => {
   const dispatch = useDispatch();
 
-  const items = useSelector((state) => state.coloursItems.coloursItems);
+  const items = useSelector(
+    (state) => state.coloursTemplateItems.coloursTemplateItems.itemId
+  );
 
-  const collectionItemColors = useSelector(state => state.selectedColor.selectedColor);
+  const collectionItemColors = useSelector(
+    (state) => state.selectedColor.selectedColor
+  );
 
   const addCollection = () => {
     dispatch(addCollectionItem(collectionItemColors));
     dispatch(saveColours());
     dispatch(saveColorItems());
-    dispatch(collectionCurrentStatus());
+    dispatch(collectionAreaCurrentState());
+    dispatch(discardSelectedColor())
   };
 
   return (

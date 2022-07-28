@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const coloursTemplateSlice = createSlice({
+export const coloursTemplateStateSlice = createSlice({
   name: "coloursTemplate",
   initialState: {
     isOpen: false,
@@ -12,6 +12,7 @@ export const coloursTemplateSlice = createSlice({
   },
 });
 
-export const { coloursTemplateCurrentState } = coloursTemplateSlice.actions;
+export const { coloursTemplateCurrentState } =
+  coloursTemplateStateSlice.actions;
 
-export default coloursTemplateSlice.reducer;
+export default coloursTemplateStateSlice.reducer;

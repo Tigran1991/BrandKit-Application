@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as Styled from "./styled";
 import { ColorPicker } from "./CollorPicker";
-import { addColours } from "../../../../../redux/features/colours";
+import { addColours } from "../../../../../redux/features/coloursReducers/colours";
 import { useDispatch } from "react-redux";
 
 export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
@@ -24,7 +24,7 @@ export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
   }, []);
 
   const change = (color) => {
-    ref.current.style.backgroundImage = 'none';
+    ref.current.style.backgroundImage = "none";
     ref.current.style.backgroundColor = color;
     onChange(color);
   };

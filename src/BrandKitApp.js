@@ -1,16 +1,16 @@
 import React from "react";
 import * as Styled from "./styled";
 import { useDispatch, useSelector } from "react-redux";
-import { appCurrentState } from "./redux/features/app";
 import FormsArea from "./BrandKitAppSections/Forms/FormsArea";
 import CollectionsArea from "./BrandKitAppSections/Collections/CollectionsArea";
+import { brandKitAppCurrentState } from "./redux/features/AppAndTemplates/brandKitAppState";
 
 const BrandKitApp = () => {
   const dispatch = useDispatch();
 
   const brandKit = useSelector((state) => state.app);
 
-  const brandKitAppHandler = () => dispatch(appCurrentState());
+  const brandKitAppHandler = () => dispatch(brandKitAppCurrentState());
 
   return (
     <Styled.BrandKitBoard>

@@ -1,14 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import appReducer from '../features/app';
-import logosTemplateReducer from '../features/logoTemplate';
-import coloursTemplateReducer from '../features/coloursTemplate';
-import fontsTemplateReducer from '../features/fontsTemplate';
-import coloursTemplateItemReducer from '../features/coloursTemplateItems';
-import colorPickerReducer from '../features/colorPicker';
-import coloursReducer from '../features/colours';
-import selectedColorReducer from '../features/selectedColor';
-import collectionReducer from '../features/collection';
-import collectionStatusReducer from '../features/collectionStatus';
+import { configureStore } from "@reduxjs/toolkit";
+import appReducer from "../features/AppAndTemplates/brandKitAppState";
+import logosTemplateReducer from "../features/AppAndTemplates/logoTemplateState";
+import coloursTemplateReducer from "../features/AppAndTemplates/coloursTemplateState";
+import fontsTemplateReducer from "../features/AppAndTemplates/fontsTemplateState";
+import colourstemplateItemsReducer from "../features/coloursReducers/coloursTemplateItems";
+import coloursReducer from "../features/coloursReducers/colours";
+import selectedColorReducer from "../features/coloursReducers/selectedColor";
+import collectionReducer from "../features/collection";
+import collectionStatusReducer from "../features/AppAndTemplates/collectionAreaState";
 
 const store = configureStore({
   reducer: {
@@ -16,14 +15,12 @@ const store = configureStore({
     logosTemplate: logosTemplateReducer,
     coloursTemplate: coloursTemplateReducer,
     fontsTemplate: fontsTemplateReducer,
-    coloursItems: coloursTemplateItemReducer,
-    colorPicker: colorPickerReducer,
+    coloursTemplateItems: colourstemplateItemsReducer,
     colours: coloursReducer,
     selectedColor: selectedColorReducer,
     collection: collectionReducer,
     isCollectionFull: collectionStatusReducer,
   },
-})
+});
 
 export default store;
-

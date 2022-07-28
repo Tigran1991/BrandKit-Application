@@ -2,7 +2,7 @@ import React from "react";
 import * as Styled from "./styled";
 import ColorTemplate from "./ColoursTemplate";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { coloursTemplateCurrentState } from "../../../../redux/features/coloursTemplate";
+import { coloursTemplateCurrentState } from "../../../../redux/features/AppAndTemplates/coloursTemplateState";
 
 const BrandColours = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,8 @@ import Collection from "./Collection";
 import EmptyArea from "./CollectionsAreasTypes/EmptyArea";
 
 const CollectionsArea = () => {
-  const collections = useSelector((state) => state.collection.collectionItems);
+  const collectionData = useSelector((state) => state.collection);
+
   const isCollectionFull = useSelector(
     (state) => state.isCollectionFull.isCollectionFull
   );
@@ -15,9 +16,12 @@ const CollectionsArea = () => {
       {!isCollectionFull ? (
         <EmptyArea />
       ) : (
-        collections.item.map((collection) => {
+        collectionData.collection.map((collection) => {
           return (
-            <Collection key={collection} collectionColours={collections} />
+            <Collection
+              key={collection.id + "a"}
+              collectionColours={collection.colours}
+            />
           );
         })
       )}

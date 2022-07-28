@@ -3,13 +3,13 @@ import * as Styled from "./styled";
 import { ColorInput } from "./ColorPicker/ColorInput";
 import { useSelector } from "react-redux";
 import {
-  addColorItem,
+  addColoursTemplateItem,
   saveColorItems,
-} from "../../../../redux/features/coloursTemplateItems";
+} from "../../../../redux/features/coloursReducers/coloursTemplateItems";
 import { useDispatch } from "react-redux/es/exports";
-import { addSelectedColor } from "../../../../redux/features/selectedColor";
-import { discardSelectedColor } from "../../../../redux/features/selectedColor";
-import { discardColours } from "../../../../redux/features/colours";
+import { discardColours } from "../../../../redux/features/coloursReducers/colours";
+import { discardSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
+import { addSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
 
 const ColorTemplate = () => {
   const dispatch = useDispatch();
@@ -29,12 +29,14 @@ const ColorTemplate = () => {
 
   const colorRef = useRef();
 
-  const colorItems = useSelector((state) => state.coloursItems.coloursItems);
+  const colorItems = useSelector(
+    (state) => state.coloursTemplateItems.coloursTemplateItems.itemId
+  );
 
   const color = useSelector((state) => state.colours.colours);
 
   const addItem = () => {
-    dispatch(addColorItem());
+    dispatch(addColoursTemplateItem());
     dispatch(addSelectedColor(color));
     dispatch(discardColours());
   };
