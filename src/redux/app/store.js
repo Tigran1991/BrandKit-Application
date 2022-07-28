@@ -4,7 +4,7 @@ import logosTemplateReducer from "../features/AppAndTemplates/logoTemplateState"
 import coloursTemplateReducer from "../features/AppAndTemplates/coloursTemplateState";
 import fontsTemplateReducer from "../features/AppAndTemplates/fontsTemplateState";
 import colourstemplateItemsReducer from "../features/coloursReducers/coloursTemplateItems";
-import coloursReducer from "../features/coloursReducers/colours";
+import colorsSelectionReducer from "../features/coloursReducers/colorsSelection";
 import selectedColorReducer from "../features/coloursReducers/selectedColor";
 import collectionReducer from "../features/collection";
 import collectionStatusReducer from "../features/AppAndTemplates/collectionAreaState";
@@ -16,7 +16,7 @@ const store = configureStore({
     coloursTemplate: coloursTemplateReducer,
     fontsTemplate: fontsTemplateReducer,
     coloursTemplateItems: colourstemplateItemsReducer,
-    colours: coloursReducer,
+    colours: colorsSelectionReducer,
     selectedColor: selectedColorReducer,
     collection: collectionReducer,
     isCollectionFull: collectionStatusReducer,

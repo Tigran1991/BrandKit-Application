@@ -7,7 +7,7 @@ import {
   saveColorItems,
 } from "../../../../redux/features/coloursReducers/coloursTemplateItems";
 import { useDispatch } from "react-redux/es/exports";
-import { discardColours } from "../../../../redux/features/coloursReducers/colours";
+import { discardColours } from "../../../../redux/features/coloursReducers/colorsSelection";
 import { discardSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
 import { addSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
 

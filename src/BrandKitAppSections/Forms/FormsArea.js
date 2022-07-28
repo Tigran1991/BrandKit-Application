@@ -6,7 +6,7 @@ import BrandFonts from "./FormItems/Fonts/BrandFonts";
 import { useDispatch, useSelector } from "react-redux";
 import { addCollectionItem } from "../../redux/features/collection";
 import { saveColorItems } from "../../redux/features/coloursReducers/coloursTemplateItems";
-import { saveColours } from "../../redux/features/coloursReducers/colours";
+import { saveColours } from "../../redux/features/coloursReducers/colorsSelection";
 import { collectionAreaCurrentState } from "../../redux/features/AppAndTemplates/collectionAreaState";
 import { discardSelectedColor } from "../../redux/features/coloursReducers/selectedColor";
 
@@ -26,7 +26,7 @@ const FormsArea = () => {
     dispatch(saveColours());
     dispatch(saveColorItems());
     dispatch(collectionAreaCurrentState());
-    dispatch(discardSelectedColor())
+    dispatch(discardSelectedColor());
   };
 
   return (

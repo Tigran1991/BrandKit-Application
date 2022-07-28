@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const coloursSlice = createSlice({
-  name: "colours",
+export const colorsSelectionSlice = createSlice({
+  name: "colorsSelection",
   initialState: {
     colours: [],
   },
@@ -18,6 +18,7 @@ export const coloursSlice = createSlice({
   },
 });
 
-export const { addColours, saveColours, discardColours } = coloursSlice.actions;
+export const { addColours, saveColours, discardColours } =
+  colorsSelectionSlice.actions;
 
-export default coloursSlice.reducer;
+export default colorsSelectionSlice.reducer;

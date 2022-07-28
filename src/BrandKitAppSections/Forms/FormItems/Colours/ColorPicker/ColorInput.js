@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as Styled from "./styled";
 import { ColorPicker } from "./CollorPicker";
-import { addColours } from "../../../../../redux/features/coloursReducers/colours";
+import { addColours } from "../../../../../redux/features/coloursReducers/colorsSelection";
 import { useDispatch } from "react-redux";
 
 export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
