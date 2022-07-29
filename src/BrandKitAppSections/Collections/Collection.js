@@ -3,32 +3,29 @@ import * as Styled from "./styled";
 import { useState } from "react";
 import CollectionItemColours from "./CollectionItemColours";
 import { generateId } from "../../utils";
+import { useDispatch } from "react-redux";
 
 const Collection = (props) => {
   const [title, setTitle] = useState(false);
-  const [currentTitle, setCurrentTitle] = useState();
+  const [currentTitle, setCurrentTitle] = useState("Title");
 
-  const titleHandler = (event) => {
-    setCurrentTitle(event.target.value);
-  };
-
-  const submitHandler = () => {
+  const submitTitle = () => {
     setTitle(false);
   };
 
   return (
     <Styled.CollectionItem>
       <>
-        {props.collectionColours.map((color) => {
+        {props.collection.colours.map((color) => {
           return <CollectionItemColours color={color} key={generateId()} />;
         })}
       </>
       <Styled.CollectionTitle>
         {title && (
-          <Styled.CollectionTitleForm onSubmit={submitHandler}>
+          <Styled.CollectionTitleForm onSubmit={submitTitle}>
             <Styled.CollectionSelectedTitle
               type="text"
-              onChange={titleHandler}
+              onChange={(e) => setCurrentTitle(e.target.value)}
             />
           </Styled.CollectionTitleForm>
         )}

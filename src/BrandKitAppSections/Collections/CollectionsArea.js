@@ -17,12 +17,7 @@ const CollectionsArea = () => {
         <EmptyArea />
       ) : (
         collectionData.collection.map((collection) => {
-          return (
-            <Collection
-              key={collection.id + "a"}
-              collectionColours={collection.colours}
-            />
-          );
+          return <Collection key={collection.id} collection={collection} />;
         })
       )}
     </Styled.CollectionsContainer>

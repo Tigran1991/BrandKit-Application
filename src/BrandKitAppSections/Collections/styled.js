@@ -42,17 +42,22 @@ export const CollectionTitle = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: -23px;
+  bottom: -34px;
   width: 90%;
+  height: 30px;
+  color: #fff;
 `;
 
-export const CollectionTitleForm = styled.div`
-  display: flex;
-`;
-
-export const CollectionSelectedTitle = styled.div`
+export const CollectionTitleForm = styled.form`
   display: flex;
   width: 100%;
+  height: 10px;
+`;
+
+export const CollectionSelectedTitle = styled.input`
+  display: flex;
+  width: 100%;
+  height: 20px;
   outline: none;
   border: none;
   background-color: #333;

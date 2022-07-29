@@ -14,6 +14,7 @@ export const collectionSlice = createSlice({
         {
           id: generateId(),
           colours: action.payload,
+          title: "Title",
         },
       ];
     },

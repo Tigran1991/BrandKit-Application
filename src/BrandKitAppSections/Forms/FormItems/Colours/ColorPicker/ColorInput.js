@@ -10,7 +10,6 @@ export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
   const openColorPicker = () => setIsColorPickerOpen(true);
   const closeColorPicker = () => setIsColorPickerOpen(false);
-  const toggleColorPicker = () => setIsColorPickerOpen(!isColorPickerOpen);
 
   const click = () => {
     openColorPicker();
