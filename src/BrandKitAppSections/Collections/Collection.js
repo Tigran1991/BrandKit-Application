@@ -1,11 +1,11 @@
 import React from "react";
 import * as Styled from "./styled";
 import { useState } from "react";
-import CollectionItemColours from "./CollectionItemColours";
+import CollectionColorItem from "./CollectionColorItem";
 import { generateId } from "../../utils";
-import { useDispatch } from "react-redux";
 
 const Collection = (props) => {
+  console.log(props);
   const [title, setTitle] = useState(false);
   const [currentTitle, setCurrentTitle] = useState("Title");
 
@@ -17,7 +17,12 @@ const Collection = (props) => {
     <Styled.CollectionItem>
       <>
         {props.collection.colours.map((color) => {
-          return <CollectionItemColours color={color} key={generateId()} />;
+          return (
+            <CollectionColorItem
+              color={color}
+              key={props.collection.colours.indexOf(color)}
+            />
+          );
         })}
       </>
       <Styled.CollectionTitle>

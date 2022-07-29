@@ -1,8 +1,8 @@
 import React from "react";
 import * as Styled from "./styled";
 
-const CollectionItem = (props) => {
+const CollectionColorItem = (props) => {
   return <Styled.ColorItem style={{ backgroundColor: props.color }} />;
 };
 
-export default CollectionItem;
+export default CollectionColorItem;
