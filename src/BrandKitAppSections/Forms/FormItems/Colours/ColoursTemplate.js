@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import * as Styled from "./styled";
 import { ColorInput } from "./ColorPicker/ColorInput";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ import { discardColours } from "../../../../redux/features/coloursReducers/color
 import { discardSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
 import { addSelectedColor } from "../../../../redux/features/coloursReducers/selectedColor";
 
-const ColorTemplate = () => {
+const ColorTemplate = memo(() => {
   const dispatch = useDispatch();
 
   const testRef = useRef();
@@ -92,6 +92,6 @@ const ColorTemplate = () => {
       </Styled.BrandColoursBtnArea>
     </Styled.ColorTemplate>
   );
-};
+});
 
 export default ColorTemplate;

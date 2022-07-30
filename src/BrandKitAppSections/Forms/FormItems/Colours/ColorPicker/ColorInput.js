@@ -30,7 +30,7 @@ export const ColorInput = ({ color, colorList, onChange, onChangeEnd }) => {
 
   const changeEnd = (color) => {
     ref.current.style.backgroundColor = color;
-    onChangeEnd(color);
+
     dispatch(addColours(color));
   };
 

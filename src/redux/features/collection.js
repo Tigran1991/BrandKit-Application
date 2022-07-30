@@ -18,9 +18,17 @@ export const collectionSlice = createSlice({
         },
       ];
     },
+    changeCollectionTitle: (state, action) => {
+      state.collection.filter((id) => {
+        if (id.id === action.payload.id) {
+          id.title = action.payload.title;
+        }
+      });
+    },
   },
 });
 
-export const { addCollectionItem } = collectionSlice.actions;
+export const { addCollectionItem, changeCollectionTitle } =
+  collectionSlice.actions;
 
 export default collectionSlice.reducer;
