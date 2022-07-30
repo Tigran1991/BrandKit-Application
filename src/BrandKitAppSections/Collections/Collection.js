@@ -7,9 +7,8 @@ import { changeCollectionTitle } from "../../redux/features/collection";
 
 const Collection = (props) => {
   const dispatch = useDispatch();
-  console.log(props);
+
   const [title, setTitle] = useState(false);
-  // const [currentTitle, setCurrentTitle] = useState("Title");
 
   const submitTitle = () => {
     setTitle(false);
@@ -34,15 +33,16 @@ const Collection = (props) => {
               type="text"
               onChange={(e) => {
                 dispatch(
-                  changeCollectionTitle({
-                    id: props.collection.id,
-                    title: e.target.value,
-                  })
+                  e.target.value === ""
+                    ? changeCollectionTitle({
+                        id: props.collection.id,
+                        title: "Title",
+                      })
+                    : changeCollectionTitle({
+                        id: props.collection.id,
+                        title: e.target.value,
+                      })
                 );
-                // setCurrentTitle(e.target.value);
-                // if (e.target.value === "") {
-                //   setCurrentTitle("Title");
-                // }
               }}
               onClick={(e) => console.log(e.currentTarget.id)}
             />

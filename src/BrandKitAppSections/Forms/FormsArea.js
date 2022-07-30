@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import * as Styled from "./styled";
 import BrandLogos from "./FormItems/Logos/BrandLogos";
 import BrandColours from "./FormItems/Colours/BrandColours";
@@ -10,7 +10,7 @@ import { saveColours } from "../../redux/features/coloursReducers/colorsSelectio
 import { collectionAreaCurrentState } from "../../redux/features/AppAndTemplates/collectionAreaState";
 import { discardSelectedColor } from "../../redux/features/coloursReducers/selectedColor";
 
-const FormsArea = () => {
+const FormsArea = memo(() => {
   const dispatch = useDispatch();
 
   const items = useSelector(
@@ -42,6 +42,6 @@ const FormsArea = () => {
       )}
     </Styled.BrandKitForm>
   );
-};
+});
 
 export default FormsArea;
